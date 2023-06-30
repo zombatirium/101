@@ -1,0 +1,10 @@
+aridade de uma 
+função ou 
+operação 
+é o número de argumentos ou 
+operandos tomados. 
+
+A aridade de uma relação 
+é o número n de elementos 
+que compõem as n-uplas 
+ordenadas pertencentes à relação.

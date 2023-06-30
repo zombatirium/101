@@ -1,0 +1,12 @@
+CPE
+é um termo técnico 
+muito utilizado por operadoras de telecomunicações e 
+fornecedores de serviços de comunicação. 
+
+É uma sigla em inglês que quer dizer 
+Customer Premises Equipment ou 
+Customer Provided Equipment 
+que significa 
+"equipamento dentro das instalações do cliente"
+
+[Wiki - Customer Premises Equipment](https://pt.wikipedia.org/wiki/Customer_Premises_Equipment)

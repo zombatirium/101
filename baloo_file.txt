@@ -1,0 +1,51 @@
+Baloo
+faz parte da área de trabalho do KDE Plasma.
+
+Especificamente, é a estrutura de indexação de arquivos e
+pesquisa de arquivos para o KDE Plasma.
+
+Baloo não é um aplicativo,
+mas um daemon para indexar arquivos.
+
+Os aplicativos podem usar a estrutura Baloo
+para fornecer resultados de pesquisa de arquivos.
+
+Você pode aprender mais sobre Baloo no Wiki da Comunidade KDE.
+
+
+Sim, você pode remover ou desabilitar o Baloo com segurança,
+mas se você pretende pesquisar usando as ferramentas do KDE,
+provavelmente não deveria.
+
+Como mencionado nos comentários,
+foi verificado pelo OP que a pesquisa de arquivos no Dolphin
+funciona após a desativação do Baloo,
+mas a pesquisa de arquivos no KRunner não funciona mais.
+
+Fico feliz que você tenha vinculado a isso pergunta,
+porque, embora tenha uma boa resposta superior / aceita,
+tenho um problema com a própria pergunta.
+
+A questão implica que,
+como o daemon usa RAM em segundo plano,
+o sistema fica mais lento e, portanto, deve ser removido.
+
+Isso pode se tornar uma ladeira escorregadia,
+onde se pode querer começar a desabilitar processos metodicamente
+para reduzir o uso de RAM.
+
+Na verdade, isso é contraproducente
+porque o oposto geralmente é verdadeiro:
+daemons que executam tarefas como indexação de pesquisa e armazenamento em cache
+podem aumentar drasticamente a velocidade dos resultados da pesquisa quando você os solicita.
+
+Existe um ditado: " RAM não utilizada é RAM desperdiçada ".
+A menos que seu sistema esteja faminto por RAM,
+eu não me preocuparia com os processos que o utilizam e
+desaconselharia a desabilitação de serviços
+pelo motivo de reduzir o uso de RAM.
+
+O mesmo também é geralmente verdadeiro para o uso da CPU
+se estiver acontecendo em segundo plano e não interferir em outros processos.
+
+https://askubuntu-com.translate.goog/questions/1267830/what-does-baloo-file-extractor-do

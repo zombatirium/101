@@ -1,0 +1,6 @@
+são threads agendados por uma biblioteca de tempo de execução 
+ou máquina virtual, 
+em vez de nativamente pelo sistema operacional subjacente
+
+
+https://stackoverflow.com/questions/5713142/green-threads-vs-non-green-threads

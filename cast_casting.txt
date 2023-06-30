@@ -1,0 +1,14 @@
+Casting ou 
+conversão de tipos 
+é uma operação feita 
+com o objetivo de alterar 
+o tipo de um determinado valor. 
+
+
+# EX:
+  a = (cast) 13.7;
+  assert a == 13; // True
+
+  Dessa forma, 
+  a parte fracionária será desconsiderada e 
+  teremos apenas a parte inteira.

@@ -1,0 +1,216 @@
+Cache de Compilação
+O termo estruturas de cache de compilação
+provavelmente é apenas uma expressão usada na outra pergunta,
+não realmente um nome específico de alguma técnica ou tecnologia.
+
+Entretanto,
+quando se fala em desempenho de uma linguagem interpretada
+como PHP,
+um dos maiores impactos no desempenho de uma aplicação
+(depois, é claro, de sanados os problemas arquiteturais)
+é o tempo que o próprio interpretador leva
+para carregar e analisar todo o código a cada requisição.
+
+
+# Definindo o problema
+Basicamente, vamos definir o problema principal da seguinte forma:
+
+
+Por padrão, a cada requisição,
+um novo interpretador PHP é instanciado,
+ele precisa carregar todos os arquivos fonte usados num sistema,
+interpretá-los e somente então executar o que está sendo solicitado.
+
+
+Em tópicos, temos os seguintes impactos no desempenho:
+
+1 Instanciação do interpretador PHP
+2 Carregamento dos arquivos PHP
+3 Interpretação e compilação em memória
+4 Execução do sistema
+
+
+Enquanto os programadores podem investir bastante no item #4,
+que é o que importa,
+os três primeiros são apenas um efeito colateral da linguagem e
+são repetidos vez após vez.
+
+Para uma simples requisição
+isso pode não ser um problema,
+mas comece a multiplicar o número de usuários e
+logo o servidor estará mais ocupando com interpretação e
+leitura de arquivos PHP do que qualquer outra coisa.
+
+Uma startup pode facilmente começar o desenvolvimento rápido
+de um sistema usando PHP.
+O problema, é que no momento que ela começar a escalar
+o número de clientes,
+ela vai estar gastando cada vez mais com hardware,
+manutenção e
+gerenciamento de servidores
+para sustentar a lentidão inerente da linguagem.
+
+
+---
+
+# Soluções
+
+#1. Interpretador PHP
+No princípio havia o CGI.
+Neste modelo,
+um servidor como o Apache
+vai executar o interpretador do PHP a cada chamada,
+como se fosse uma chamada em linha de comando.
+
+Vendo os problemas com isso,
+foram criadas algumas técnicas para deixar o interpretador PHP
+permanentemente em memória e
+assim evitar quase completamente o primeiro passo.
+
+O interpretador pode ser incluído como um módulo do Apache,
+o que significa que o PHP fica instanciado junto com o servidor web.
+Devido há alguns problemas desse modelo,
+criou-se depois o modelo Fast CGI,
+onde o interpretador não fica mais no mesmo processo do servidor,
+mas permanece em memória num processo separado.
+
+Não vou entrar em detalhes quanto aos pós e contras aqui,
+o importante é entender que ter o interpretador em memória
+aumenta muito o desempenho
+ao evitar a criação de um novo processo do PHP para cada requisição,
+que é como se cada usuário executasse um novo programa no servidor.
+
+
+#2 e #3. Carregamento e interpretação
+Uma grande vantagem do PHP ler os arquivos a cada requisição
+é que você simplesmente precisa editá-los ou substituí-los e,
+voi là,
+o sistema foi atualizado "instantaneamente".
+Entretanto, isso também é ineficiente
+se precisa ser feito milhares de vezes por segundo.
+
+Bem, até linguagens compiladas precisam ter os executáveis lidos do disco,
+mas além disso,
+o PHP ainda precisa interpretar os arquivos,
+o que significa analisar todos os caracteres,
+estruturas,
+verificar erros e,
+se tudo correr bem,
+gerar uma estrutura em memória para ser executada,
+que é conhecida como opcode.
+
+Para resolver isso,
+o caminho que muitas ferramentas usam
+é fazer cache dessas estruturas compiladas (opcode cache),
+de forma a evitar a repetição contínua
+tanto do carregamento do código-fonte (#2)
+quanto da compilação (#3).
+
+Opcode é um código intermediário
+entre PHP e o código que realmente é executado,
+portanto não é tão rápido quanto código nativo,
+mas evita a interpretação do código-fonte original.
+
+Se o opcode for gravado em disco,
+temos ainda o problema #2,
+onde ele precisa ser carregado a cada requisição,
+portanto é prática comum armazenar essas estruturas em memória.
+Dessa forma,
+depois da primeira requisição que inclua um determinado arquivo,
+aquele arquivo já vai estar disponível na memória compartilhada.
+
+O problema com isso é que tudo deve ser feito novamente
+cada vez que o processo for reiniciado ou
+o sistema for atualizado.
+
+
+# Gerenciando opcode cache
+Para colocar um arquivo PHP em memória,
+sem executá-lo,
+pode-se usar o comando
+[opcache_compile_file](https://www.php.net/manual/en/function.opcache-compile-file.php)
+da biblioteca
+[OPcache](https://www.php.net/manual/en/intro.opcache.php)
+
+Entretanto,
+para evitar impactos no desempenho após a reinicialização ou
+atualização dos servidores,
+os arquivos devem ser carregados novamente
+após a inicialização do servidor e
+antes da primeira requisição.
+
+Isso é particularmente importante
+quando você tem um cluster de servidores, isto é,
+vários servidores com o mesmo sistema
+que podem servir páginas para os usuários alternadamente.
+
+Suponha que você tem dois servidores.
+Para atualizar o sistema,
+você para um deles fora do horário de pico,
+de forma que apenas o outro supra a demanda no momento.
+Você atualiza o sistema no servidor,
+realiza os testes necessários e "aquece"
+o sistema carregando todos os arquivos em cache.
+Finalmente,
+você coloca os servidor novamente no ar e
+vai para o próximo.
+Em tese, os usuários não devem perceber que houve uma atualização,
+nem vai haver degradação do desempenho
+nas primeiras requisições após a atualização.
+
+É importante mencionar que há
+[várias ferramentas para gerenciar cache de opcode](https://en.wikipedia.org/wiki/List_of_PHP_accelerators#Alternative_PHP_Cache_.28APC.29)
+assim como outros tipos de cache.
+O Alternative PHP Cache (APC), por exemplo,
+é uma biblioteca de código-aberto
+que faz parte do projeto PHP e
+serve tanto para armazenar opcode
+quanto para armazenar valores arbitrários.
+Isso nos leva ao próximo tópico.
+
+#4. Fazendo cache na aplicação
+Indo mais a fundo,
+é possível armazenar alguns objetos mais usados em cache,
+dessa forma,
+além de não precisar ler o arquivo e interpretá-lo,
+o sistema não precisa nem instanciar e carregar os dados.
+
+Imagine que o sistema usa frequentemente coleções como:
+
+* Lista de estados do país, que nunca muda;
+* Lista de fornecedores, que muda talvez a cada mês;
+* Lista de boletos em atraso, que é atualizado uma vez por dia;
+* Configurações internas do sistema;
+* Por aí vai...
+
+---
+
+# Juntando tudo
+Todas as técnicas de cache e pré-aquecimento (warming)
+dos arquivos do sistema em memória,
+faz com que o processamento do servidor possa ser concentrado
+no que realmente importa, isto é, nas regras do sistema.
+
+Em sistemas com muita carga, isto é, muitos acessos simultâneos,
+tais técnicas,
+alinhadas com outras técnicas de desempenho e
+outras estratégias de caching podem economizar muito tempo e dinheiro,
+tanto em relação à aquisição de novos servidores,
+quanto ao gerenciamento e manutenção dos mesmos.
+
+---
+
+# Considerações
+Não custa lembrar que cada otimização tem efeitos colaterais.
+
+A complexidade de gerenciar caches, por exemplo, pode ser assustadora.
+Comportamentos bizarros podem ocorrer
+se isso for feito de forma errada,
+ainda mais pensando na possibilidade de código PHP em cache estar defasado.
+
+Nunca se deve aplicar técnicas profundas de otimização e caching
+a não ser que seja necessário,
+caso contrário também vai se estar jogando dinheiro e tempo fora.
+
+# REFERÊNCIAS
+[O que são Estruturas de Cache Compilação?](https://pt.stackoverflow.com/questions/102491/o-que-são-estruturas-de-cache-de-compilação)

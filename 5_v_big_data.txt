@@ -1,0 +1,6 @@
+1 - VOLUME
+2 - Velocidade
+3 - Variedade
+4 - VARIABILIDADE
+5 - Vínculo
+

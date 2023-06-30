@@ -1,0 +1,147 @@
+Bitwise, bitshift
+deslocamento
+um deslocamento de bits 
+move cada dígito 
+na representação binária de um número 
+para a esquerda ou direita. 
+
+O resultado de uma operação de deslocamento 
+é indefinido se o segundo operando for negativo, 
+ou se o operando à direita 
+for maior ou igual 
+à largura em bits do operando promovido à esquerda.
+
+
+Existem três tipos principais de turnos:
+
+  LEFT SHIFT
+    => Ao deslocar para a esquerda, 
+       o bit mais significativo 
+       é perdido 
+       e um bit 00 
+       é inserido na outra extremidade.
+
+    => OBS:
+      expr1 << expr2 == expr1 * 2^expr2
+
+    => EX: 0010 == 2
+        0010 << 1 -> 0100 == 4
+        0010 << 2 -> 1000 == 8
+
+
+  LOGICAL RIGHT SHIFTS
+    => Ao deslocar para a direita 
+       com um deslocamento lógico para a direita, 
+       o bit menos significativo é perdido 
+       e um 00 é inserido na outra extremidade.
+
+    => EX1: 1011 == 11
+        1011 >>> 1 -> 0101 == 5
+        1011 >>> 3 -> 0001 == 1
+
+    => EX2: 0101 == 5
+        0101 >>> 1 -> 0010 == 2
+
+
+  ARITHMETIC RIGHT SHIFTS
+    => Ao deslocar para a direita 
+       com um deslocamento aritmético para a direita, 
+       o bit menos significativo é perdido 
+       e o bit mais significativo é copiado.
+
+    => OBS:
+      expr1 >> expr2 == expr 1 / 2^expr2
+
+    => EX 1: 1011 == 11
+        1011 >> 1 -> 1101 == 13
+        1011 >> 3 -> 1111 == 15
+        
+    => EX 2: 0011 == 3
+        0011 >> 1 -> 0001 == 1
+        0011 >> 2 -> 0000 == 0
+
+
+    => As linguagens lidam com o deslocamento:
+       lógico e aritmético para a direita de maneiras diferentes. 
+       Java fornece dois operadores de deslocamento para a direita: 
+       >> faz um deslocamento aritmético para a direita e
+       >>> faz um deslocamento lógico para a direita.
+
+
+    => OBS:
+        O deslocamento de um valor negativo para a direita 
+        gera a metade do valor original, arredondado para baixo.
+
+        EX: 
+          -253 (11111111 00000011) >> 1 -> -127 (11111111 10000001)
+          +253 (00000000 11111101) >> 1 -> +126 (01111110)
+
+        Os deslocamentos para a direita 
+        preservam o bit de sinal. 
+        Quando um inteiro assinado é deslocado para a direita, 
+        o bit mais significativo permanece definido. 
+        Quando um inteiro não assinado é deslocado para a direita, 
+        o bit mais significativo é limpo.
+
+
+EX 1:
+  unsigned int x, y, z;
+
+  x = 0x00AA;
+  y = 0x5500;
+
+  z = ( x << 8 ) + ( y >> 8 ); // == 0xAA55
+
+EX 2:
+  #include <iostream>
+  #include <typeinfo>
+
+  using namespace std;
+
+  int main() {
+      char char1 = 'a';
+
+      auto promoted1 = char1 << 1;   // 194
+      cout << typeid(promoted1).name() << endl;  // int
+
+      auto promoted2 = char1 << 10;  // 99328
+      cout << typeid(promoted2).name() << endl;  // int
+  }
+
+EX 3:
+  const a = 5;          //  00000000000000000000000000000101
+  const b = 2;          //  00000000000000000000000000000010
+  const c = -5;         // -00000000000000000000000000000101
+
+  console.log(a >> b);  //  00000000000000000000000000000001
+  // expected output: 1
+
+  console.log(c >> b);  // -00000000000000001111111111111110
+  // expected output: -2
+
+
+# Bit Addressing
+  => Little-endian ordering 
+    -> um deslocamento para a esquerda em 8 posições 
+       aumenta o endereço de byte em 1
+
+    -> um deslocamento para a direita em 8 posições 
+       diminui o endereço de byte em 1
+
+
+  => Big-endian ordering 
+    -> um deslocamento para a esquerda em 8 posições 
+       diminui o endereço de byte em 1
+
+    -> um deslocamento à direita em 8 posições 
+       aumenta o endereço de byte em 1
+
+
+# REFERÊNCIAS:
+https://www.interviewcake.com/concept/java/bit-shift
+https://en.wikipedia.org/wiki/Bitwise_operation#Bit_shifts
+https://docs.microsoft.com/pt-br/cpp/cpp/left-shift-and-right-shift-operators-input-and-output?view=msvc-160
+https://docs.microsoft.com/pt-br/cpp/c-language/bitwise-shift-operators?view=msvc-160
+http://www.binario.org.es/253-en-Complemento2.php
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html
+https://c-for-dummies.com/blog/?p=1848

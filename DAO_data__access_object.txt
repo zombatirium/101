@@ -1,0 +1,18 @@
+Objeto de Acesso a Dados, DAO 
+é um padrão que fornece uma interface abstrata 
+para algum tipo de banco de dados ou 
+outro mecanismo de persistência. 
+
+Ao mapear as chamadas do aplicativo 
+para a camada de persistência, 
+o DAO fornece algumas operações de dados específicas 
+sem expor detalhes do banco de dados. 
+
+Esse isolamento apóia o princípio de responsabilidade única. 
+Ele separa quais dados de acesso o aplicativo precisa, 
+em termos de objetos específicos de domínio e 
+tipos de dados (a interface pública do DAO), 
+de como essas necessidades podem ser satisfeitas
+com um SGBD específico, 
+esquema de banco de dados, etc. 
+(a implementação do DAO).

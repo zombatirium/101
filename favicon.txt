@@ -1,0 +1,3 @@
+Ícone de favoritos
+que pode ser visualizado
+ao ser amazenado nos bookmarks da página

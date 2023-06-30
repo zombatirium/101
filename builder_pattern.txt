@@ -1,0 +1,15 @@
+Builder Pattern, padrão construtor
+é um padrão de design (projeto)
+projetado para fornecer uma solução flexível 
+para vários problemas de criação de objetos 
+na programação orientada a objetos. 
+
+A intenção do padrão de design Builder 
+é separar a construção de um objeto complexo 
+de sua representação. 
+É um dos padrões de projeto da Gang of Four.
+
+# REFERÊNCIAS
+https://pt.wikipedia.org/wiki/Builder
+https://en.wikipedia.org/wiki/Builder_pattern
+https://www.devmedia.com.br/design-patterns-aplicando-os-padroes-builder-singleton-e-prototype/31023

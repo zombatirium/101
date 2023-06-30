@@ -1,0 +1,28 @@
+destructuring, desestruturação
+é uma expressão no Javascript 
+que possibilita ao usuário “desempacotar” 
+valores de um array ou 
+propriedades de objetos, 
+em variáveis diferentes!
+Com ele, 
+conseguimos criar um código mais legível, 
+mais estruturado e 
+fácil de dar manutenção!
+
+EX: 
+    SEM destructuring
+      const array = ["Um", "Dois", "Três"]
+
+      let primeiro = array[0]
+      let segundo = array[1]
+      let terceiro = array[2]
+
+
+    COM destructuring
+      const array = ["Um", "Dois", "Três"];
+
+      let [primeiro, segundo, terceiro] = array;
+
+
+# REFERÊNCIA
+[Como Funciona O Destructuring No Javascript](https://backefront.com.br/como-funciona-destructuring-js/#:~:text=O%20que%20%C3%A9%20destructuring%3F,e%20f%C3%A1cil%20de%20dar%20manuten%C3%A7%C3%A3o!)

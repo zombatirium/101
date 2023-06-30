@@ -1,0 +1,11 @@
+guard, guarda
+é uma expressão booleana 
+que deve ser avaliada como:
+verdadeira 
+para que a execução do programa 
+continue na ramificação em questão
+
+EX:
+  f x
+    | x > 0 =1
+    | otherwise = 0

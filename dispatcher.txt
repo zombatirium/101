@@ -1,0 +1,29 @@
+Dispatcher (scheduler),
+despachante,
+módulo que dá o controle da CPU 
+ao processo selecionado pelo escalonador 
+de curto prazo. 
+Ele recebe o controle no modo kernel 
+como resultado de uma interrupção ou 
+chamada do sistema
+
+
+FUNÇÕES:
+    Alternâncias de contexto,
+        -> despachante salva o estado (contexto) 
+           do processo ou 
+           thread
+           que estava em execução
+           anteriormente.
+           Em seguida,
+           carrega o contexto
+           inicial ou
+           previamente salvo
+           do novo processo 
+
+    Mudança para o modo usuário
+
+    Saltar para o local adequado 
+    no programa do usuário 
+    para reiniciar o programa 
+    indicado por seu novo estado.

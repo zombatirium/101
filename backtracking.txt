@@ -1,0 +1,10 @@
+Backtracking 
+é um refinamento do algoritmo de busca 
+por força bruta (ou enumeração exaustiva), 
+no qual boa parte das soluções 
+podem ser eliminadas 
+sem serem explicitamente examinadas. 
+
+Se aplica em: Problemas cuja solução 
+pode ser definida 
+a partir de uma seqüência de decisões.

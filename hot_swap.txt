@@ -1,0 +1,33 @@
+Hot swap ou hot swapping (traduzido como "troca quente") 
+é uma tecnologia que permite a remoção e substituição de componentes em equipamentos 
+(geralmente computadores) como hard disks, 
+controladoras e 
+outros periféricos como pen-drives, 
+sem precisar interromper sua utilização ou desligá-los.
+
+Uma "troca a quente" 
+pode ser a substituição de um disco rígido, 
+unidade de CD-ROM, 
+fonte de alimentação ou 
+outro componente, por um novo dispositivo 
+enquanto o computador permanece em operação. 
+Essa substituição pode ocorrer 
+quando um equipamento precisa ser substituído, 
+seja por término da utilização, 
+falha do dispositivo ou atualização do sistema.
+
+Os primeiros dispositivos I/O não eram hot swappable. 
+As antigas portas paralelas e SCSI 
+que equipavam nossos computadores 
+não suportavam a conexão ou remoção de dispositivos 
+enquanto os mesmos estivessem ligados, 
+sob pena de causar danos ao periférico ou ao próprio computador.
+
+Os PCs modernos já incluem diversas portas hot swappable há algum tempo, 
+como entradas USB, eSATA, FireWire e conexões Thunderbolt. 
+Atualmente o termo hot swappable é mais usado 
+para descrever componentes de estruturas que exigem alta disponibilidade, 
+como servidores e storages que equipam infraestruturas de TI de empresas e datacenters.
+
+# REFERÊNCIAS
+https://www.controle.net/faq/o-que-e-hot-swap-e-como-funciona

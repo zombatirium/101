@@ -1,0 +1,40 @@
+ACID 
+é um conceito que se refere às quatro propriedades 
+de transação de um sistema de banco de dados: 
+Atomicidade, 
+Consistência, 
+Isolamento e 
+Durabilidade
+
+# ATOMICIDADE
+  =>  garante que cada transação seja tratada como uma única "unidade", 
+      que é bem-sucedida ou falha completamente: 
+      se alguma das instruções 
+      que constituem uma transação 
+      não for concluída, 
+      a transação inteira falhará e 
+      o banco de dados permanecerá inalterado. 
+
+# CONSISTÊNCIA
+  => garante que uma transação 
+     só pode trazer o banco de dados 
+     de um estado válido para outro, 
+     mantendo as invariáveis do banco de dados:
+     quaisquer dados gravados no banco de dados 
+     devem ser válidos 
+     de acordo com todas as regras definidas, 
+     incluindo restrições,
+     cascatas, gatilhos e 
+     qualquer combinação entre ambos. 
+
+# ISOLAMENTO
+  => garante que a execução simultânea de transações 
+     deixe o banco de dados 
+     no mesmo estado que teria sido obtido 
+     se as transações fossem executadas sequencialmente.
+
+# DURABILIDADE
+  => garante que:
+     uma vez que uma transação tenha sido confirmada, 
+     ela permanecerá confirmada 
+     mesmo no caso de uma falha do sistema

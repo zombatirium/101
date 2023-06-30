@@ -1,0 +1,76 @@
+mixin, classe mistura
+em POO, 
+é uma classe que contém métodos 
+para utilização por outras classes 
+sem ter que ser a classe principal 
+das referidas outras classes. 
+Como essas outras classes 
+obtêm acesso aos métodos do mixin 
+depende do idioma.
+
+É uma classe que define um conjunto de funções relacionadas a um tipo.
+Ou seja, uma forma de composição de objetos, 
+onde as características dos componentes 
+se misturam em um objeto composto, 
+de modo que as propriedades de cada mistura 
+se tornem propriedades do objeto composto.
+
+
+# ANALOGIA
+  Em vez de ter um monte de sabores de sorvete 
+  em diferentes compartimentos pré-misturados, 
+  você tem sorvete de baunilha
+  e um monte de ingredientes separados 
+  que podem ser misturados 
+  para criar sabores personalizados 
+  para cada cliente.
+
+
+# EX
+  const myMixins = {
+    moveUp: funcion() {
+      console.log("move up")
+    },
+    moveDown: funcion() {
+      console.log("move down")
+    },
+    stop: funcion() {
+      console.log("move up")
+    }
+  }
+
+  funcion car() {
+    this.moveLeft = funcion() {
+      console.log("move left")
+    }
+  }
+
+  funcion person() {
+    this.moveRandomly = funcion(){ /*,,*/ }
+  }
+
+  // _extende os dois construtores com o nosso myMixins
+  _extende( car.prototype, myMixins )
+  _extende( person.prototype, myMixins )
+
+  const teste = now car()
+
+  teste.moveLeft() // move left
+  teste.moveDown() // move down
+  teste.stop() // stop
+
+
+# VANTAGENS
+ * a composição de objetos.
+ * resolve uma série de problemas da herança e classes em JavaScript.
+ * facilidade com a sintaxe.
+ * reutilização do código sem depender da herança.
+
+# DESVANTAGENS
+ * exigem funções auxiliares ou bibliotecas.
+ * uma composição grande e mal feita pode ser complexa de se analisar.
+
+
+# REFERÊNCIAS
+# https://en.wikipedia.org/wiki/Mixin
+# https://medium.com/@viniazvd/mixins-ac3d3e5090b7

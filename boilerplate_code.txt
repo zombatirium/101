@@ -1,0 +1,37 @@
+Boilerplate code (código padrão ou código clichê),
+termo muito utilizado para se referir a trechos de documentos 
+(por exemplo jurídicos)
+que são sempre os mesmos,
+de documento pra documento,
+de modo que não acrescentam muita coisa,
+mas mesmo assim não podem ser omitidos.
+
+Nos exemplos abaixo, 
+a única "linha útil"
+é a que imprime a string "Olá, mundo",
+
+EX:
+    Python:
+        print("Olá, Mundo!")
+
+    Java:
+        public class OlaMundo {
+            public static void main(String[] args) {
+                System.out.println("Olá, Mundo!");
+            }
+        }
+
+    C#:
+        using System;
+
+        namespace Teste
+        {
+            class OlaMundo
+            {
+                static void Main()
+                {
+                    Console.WriteLine("Olá, Mundo!");
+                }
+            }
+        }
+

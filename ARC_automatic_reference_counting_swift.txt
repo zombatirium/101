@@ -1,0 +1,64 @@
+ARC Automatic Reference Counting, 
+contagem automática de referência,
+de Swift
+é um recurso de gerenciamento de memória 
+do compilador Clang, 
+que fornece contagem automática de referência 
+para as linguagens de programação Objective-C e Swift
+
+ Quando você cria um objeto de uma classe, 
+ Swift lembra que a instância está sendo referenciada 
+ precisamente uma vez. 
+ Se você apontar outra variável para aquele objeto, 
+ o Swift aumentará a contagem de referência para 2, 
+ porque duas variáveis 
+ ​​estão apontando para o mesmo objeto. 
+ Se agora você destruir a primeira variável 
+ (
+ talvez ela estivesse dentro de uma função e 
+ essa função tenha terminado
+ ), 
+ o Swift leva a contagem de referência de volta para 1.
+ 
+ Tudo isso é importante porque, 
+ enquanto a contagem de referência 
+ for maior que 1, 
+ o objeto permanece vivo. 
+ Mas quando a variável final 
+ que faz referência a esse objeto 
+ vai embora, 
+ o Swift levará a contagem de referência até zero. 
+ Como nenhuma variável existente aponta para o objeto, 
+ sua RAM pode ser liberada.
+ 
+ 
+ EX:
+    class Person {
+        var firstName: String
+        var lastName: String
+        
+        init(firstName: String, lastName: String) {
+            self.firstName = firstName
+            self.lastName = lastName
+        }
+    }
+
+    var person = Person(firstName: "Neel", lastName: "Bakshi")
+    print(CFGetRetainCount(person)) // deve imprimir 1, imprime 2 quando você executá-lo em um playground.
+    
+    var person1: Person? = person
+    var person2: Person? = person
+    print(CFGetRetainCount(person)) // deve imprimir 3 porque existem 3 referências: person, person1 e person2.
+    print(CFGetRetainCount(person1)) // isso também deve imprimir 3, uma vez que eles estão apontando para a mesma instância.
+    
+    person2 = nil // Reduz a contagem de referência em 1
+    print(CFGetRetainCount(person)) // deve imprimir 2
+    
+ 
+ # REFERÊNCIAS
+ https://www.hackingwithswift.com/example-code/language/what-is-automatic-reference-counting-arc
+ https://medium.com/doyeona/automatic-reference-counting-in-swift-arc-weak-strong-unowned-925f802c1b99
+ https://www.impacta.com.br/blog/arc-automatic-reference-count/
+ https://learnappmaking.com/automatic-reference-counting-arc-swift/
+ https://docs.elementscompiler.com/Concepts/ARC/
+ http://docwiki.appmethod.com/appmethod/1.17/topics/en/Automatic_Reference_Counting_in_Object_Pascal_Mobile_Compilers

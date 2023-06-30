@@ -1,0 +1,11 @@
+Em lógica 
+uma declaração é (a) ou (b) 
+(a) 
+  uma sentença declarativa significativa 
+  que é 
+  ou verdadeira 
+  ou falsa, 
+(b)
+  afirmada 
+  ou criada 
+  pelo uso de uma sentença declarativa.

@@ -1,0 +1,15 @@
+Conectividade
+é quando uma máquina
+consegue enviar um pacote de rede para outra
+e receber uma resposta
+
+
+Em geral, 
+usa-se o programa ping
+que gera um pacote do tipo ICMP
+
+para envio:
+  ICMP request
+
+Para resposta
+  espera um ICMP response

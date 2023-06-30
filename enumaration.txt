@@ -1,0 +1,11 @@
+enumeration, enumeração
+sequências fixas de valores
+Uma enumeração é uma:
+lista completa e 
+ordenada 
+de todos os itens de uma coleção
+O termo é comumente usado em:
+matemática e 
+ciência da computação 
+para se referir a: 
+uma lista de todos os elementos de um conjunto

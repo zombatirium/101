@@ -1,0 +1,56 @@
+Espera ociosa
+testar continuamente uma variável até que algum valor apareça
+isso consome recurso da CPU
+
+Python
+    sleep(10)
+
+Java
+    Thread.sleep(10)
+
+# EX (Lock = chavemante obrigatório)
+    # condition = true -> critical_region = PROCESSO 1
+    while (1) {
+        while(condition not true);
+        critical_region();
+        condition=false
+        noncritical_region();
+    }
+
+    # condition = false -> critical_region = PROCESSO 2
+    while (1) {
+        while(condition not false);
+        critical_region();
+        condition=true
+        noncritical_region();
+    }
+
+# Solução de Peterson
+    Processo quer entrar numa região crítica,
+        processo verifica se sua entrada é permitida
+        caso contrário, processo ficará num laçoes esperando até que sua entrada seja permitida
+
+    Consome tempo de CPU e pode gerar efeitos inesperados
+
+    # EX C
+    #define FALSE 0         /* número de processos */
+    #define TRUE 1
+    #define N
+
+    int turn;               /* de quem é a vez? */
+    int interested[N];      /* todos os valores 0 (FALSE) */
+
+    void enter_region(int process)      /* processo é 0 ou 1 */
+    {
+        int other;                      /* número do outro processo */
+
+        other = 1 - process;            /* o oposto do outro processo */
+        interested[process] = TRUE      /* mostra que você está interessado */
+        turn = process;                 /* altera o valor de turn */
+        while (turn == process && interested[other] == TRUE) /* comando nulo */
+    }
+
+    void leave_region(int process)      /* processo: quem esta saindo */
+    {
+        interested[process] = FALSE     /* indica a saída da região crítica */
+    }

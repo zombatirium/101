@@ -1,0 +1,159 @@
+Advanced Message Queuing Protocol, AMQP
+Protocolo avançado de enfileiramento de mensagens
+
+Protocolo de rede que permite aplicações
+se comunicarem com um middleware intermediário
+(message brokers) para troca de mensagens 
+de forma assíncrona
+
+É um padrão aberto 
+para a transmissão de mensagens comerciais 
+entre aplicativos ou organizações. 
+
+Ele conecta sistemas, 
+alimenta os processos de negócios 
+com as informações de que precisam e 
+transmite de forma confiável 
+as instruções que alcançam seus objetivos.
+
+Assim, o AMQP pode ser entendido 
+como um protocolo pertencente 
+à mesma camada do MQTT ou, ainda, do HTTP.
+Camada de aplicação
+
+Permite o envio e recebimento de mensagens 
+de forma assíncrona -
+quando enviamos uma mensagem,
+não esperamos uma resposta imediata
+
+Protocolo bi-direcional 
+onde um cliente pode enviar e 
+receber mensagens de outros clientes através do broker.
+
+
+# PALAVRAS CHAVE
+  => Broker, 
+  => publishers, 
+  => consumers, 
+  => exchanges, 
+  => bindings e 
+  => queues
+
+## Exchanges
+  Entidades onde as mensagens são enviadas (Publishers -> Exchanges)
+  com quem os Publishers interagem
+
+  ### Definição
+    Recebe uma mensagem redirecina para 0 ou mais queues
+    de acordo com as bindings (regras)
+
+  ### Tipos
+    => Direct 
+      envia mensagem diretamente para a queue definida na rounting key
+      caso não exista rounting key correspondente queue vinculada a exchange,
+      descarte a mensagem
+    => Default
+      exchange do tipo Direct sem nome
+      caso não passe o nome da exchange e passe a rounting key, cairá em Default
+      com binding key (regra) com seu próprio nome
+    => Fanout
+      entrega mensagem a todas as queues vinculadas, 
+      independente da rounting key da mensagem
+    => Topic
+      direciona as mensagens para uma ou mais queues (queues indicam quais tópicos de seu interesse)
+      com base em um wildcard march 
+      entre a rounting key da mensagem e o rounting pattern do binding com as queues
+      a rounting key deve ser um lista de palavras delimitadas por ponto
+        ex:
+          notas.compras.filial
+          notas.vendas.filial
+          notas.compras.matriz
+      o rounting pattern pode usar asterisco (*) ou tralha (#) para a correspondência
+        ex:
+          notas.*.matriz
+          notas.compras.*
+          #.matriz
+          notas.#
+      útil para enviar uma mensagem a um contexto específico (pub/sub)
+      por isso, é geralmente o mais utilizado fora do rabbitmq
+    => Headers
+      direciona uma mensagem com base em atributos (int, bool, mais de um valor etc.)
+      que são mais facilmente expressos no header da mensagem 
+      do que como uma rounting key (que é igorada enste caso)
+
+  ### Atributos
+    => Name
+    => Durability (exchange se mantém com um restart do broker)
+    => auto-delete (exchange é removida após a última queue é desvinculada)
+    => arguments (utilizado por plugins e brokers)
+    => rounting key {atributo da mensagem} (exchange, decida para onde destinar a mensagem)
+
+## Connections x Channels
+Canais que permitem o compatilhamento de uma única conexão TCP
+Cada operação realizada por um client, acontece em um channel
+
+Um channel, exite apenas no contexto de uma connection
+Quando uma connection é fechada, todos os channels dela também são.
+
+Um channel é isolado de outro channel
+
+Quando se tem um processo, ou uma thread, é comum abrir um channel
+para cada um deles.
+Todavia, todos usam a mesma connection
+
+## Queues
+  ### Tipos
+    => automatic ack 
+      consumer leu a mensagem da fila, automaticamente a mensagem
+      é removida da fila
+    => explicit ack
+      só quando o processamento terminou, que o consumer diz que
+      a mensagem pode ser removida
+    => reject
+      depende de cada broker implementar
+
+## Messages
+Em geral, carregam um payload que é formado por uma array de bytes
+e que não é alterado pelo broker
+
+As mensagens podem ter apenas atributos e nenhum payload
+
+As mensagens possuem atributos comuns, mas deixa aberto a outras
+aplicações definirem os seus
+  ### Tipos
+    => Content Type 
+      referente ao payload da mensagem
+    => Content enconding
+      referente ao payload da mensagem
+    => Routing key
+      rota chave
+    => Delivery mode (persistent ou não - independente da exchange ou queue se durable)
+      persistente, reinicia o broker e mensagens continuam (banco de dados)
+      não persistente, reinicia o broker e mensagens não continuam (memória)
+      tratada em memória ou no banco
+    => Message priority
+    => Message publishing timestamp
+    => Expiration period
+    => Publisher application id
+
+# RabbitMQ
+Software Open Source que atua como message broker, como intermediário
+no recebimento e envio de mensagens entre duas ou mais aplicações
+  ### Protocolos suportados
+    => AMQP 0-9-1
+    => AMQP 1.0
+    => MQTT 3.1.1 (Message Queuing Telemetry Transport)
+    => STOMP 1.0-1.2 (Simple Text Oriented Messaging Protocol)
+
+# REFERÊNCIAS
+https://www.amqp.org/about/what
+https://www.embarcados.com.br/amqp-protocolo-de-comunicacao-para-iot/
+[AMQP 0-9-1 - Conhecendo a base principal dos message brokers _ #mensageria #amqp](https://www.youtube.com/watch?v=awiUDbZEvAA)
+[AMQP 0-9-1 - conhecendo as Exchanges do tipo Direct _ #mensageria #amqp](https://www.youtube.com/watch?v=rtSer2Oo6kw)
+[AMQP 0-9-1 - conhecendo as Exchanges do tipo Default #mensageria #amqp](https://www.youtube.com/watch?v=lAmGqfb7ebQ)
+[AMQP 0-9-1 - conhecendo as Exchanges do tipo Fanout _ #mensageria #amqp](https://www.youtube.com/watch?v=7XfiBeoAzj4)
+[AMQP 0-9-1 - conhecendo as Exchanges do tipo Topic _ #mensageria #amqp](https://www.youtube.com/watch?v=fIwLi6s6SmY)
+[AMQP 0-9-1 - conhecendo as Exchanges do tipo Headers _ #mensageria #amqp](https://www.youtube.com/watch?v=MjvjeKa6MII)
+[AMQP 0-9-1 - conhecendo as Connections e Channels _ #mensageria #amqp](https://www.youtube.com/watch?v=cduyporKYN8)
+[AMQP 0-9-1 - conhecendo as Messages e seus atributos _ #mensageria #amqp](https://www.youtube.com/watch?v=NVIZgbDY81s)
+[O que é RabbitMQ_ #mensageria #amqp](https://www.youtube.com/watch?v=RdYQK4S0AcA)

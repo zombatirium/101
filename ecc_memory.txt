@@ -1,0 +1,12 @@
+Memória ECC
+
+Para a maioria das empresas,
+é absolutamente vital eliminar a corrupção de dados,
+e esse é o objetivo da memória ECC (código de correção de erro).
+
+ECC é um tipo de memória de computador
+que detecta e corrige os tipos mais comuns de corrupção de dados da memória.
+
+# Referências
+[What is ECC Memory](https://br.crucial.com/articles/pc-builders/what-is-ecc-memory)
+

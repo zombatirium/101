@@ -1,0 +1,24 @@
+Um identificador descentralizado (DID) 
+é um novo tipo de identificador globalmente exclusivo, 
+resolvível com alta disponibilidade e verificável criptograficamente. 
+
+Os DIDs são normalmente associados a material criptográfico, 
+como chaves públicas e terminais de serviço, 
+para estabelecer canais de comunicação seguros. 
+
+Os DIDs são úteis para qualquer aplicativo 
+que se beneficie de identificadores autoadministrados e criptograficamente verificáveis, 
+como identificadores pessoais, 
+identificadores organizacionais e 
+identificadores para cenários de Internet das Coisas. 
+
+Por exemplo, as implantações comerciais atuais de credenciais verificáveis do W3C 
+utilizam amplamente identificadores descentralizados 
+para identificar pessoas, 
+organizações e 
+coisas e 
+para obter uma série de garantias de proteção de privacidade e segurança. 
+Este documento é uma introdução ao conceito de identificadores descentralizados.
+
+https://w3c-ccg.github.io/did-primer/
+https://github.com/w3c-ccg/did-primer

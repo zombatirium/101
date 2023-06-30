@@ -1,0 +1,8 @@
+eager loading (carregamento ansioso),
+é o mecanismo pelo qual uma associação, coleção ou atributo 
+é carregado imediatamente quando o objeto principal é carregado.
+
+Dessa forma,
+todas as relações de uma entidade serão carregadas 
+no mesmo momento em que esta entidade é carregada. 
+É o contrário do "Lazy Loading".

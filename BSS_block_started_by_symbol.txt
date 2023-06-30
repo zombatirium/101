@@ -1,0 +1,21 @@
+block started by symbol, BSS
+ou ainda Better Save Space (Melhor espaço para salvar),
+em português: símbolo de início do bloco
+(abreviado para .bss ou bss )
+é a parte de um arquivo de objeto,
+executável ou código de linguagem assembly 
+que contém variáveis alocadas estaticamente declaradas, 
+mas ainda não foram atribuídas um valor.
+É frequentemente referido como "seção bss" ou "segmento bss"
+
+
+Em C, 
+toda variável global, estática
+que só foi declarada,
+mas não teve nenhum valor atribuído
+permanece aqui;
+automáticamente inicializado com
+zero ou nulo
+ex: 
+  int i;
+  char *hello;

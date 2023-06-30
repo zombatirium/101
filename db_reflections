@@ -1,0 +1,87 @@
+Reflection
+ORM vai ao DB,
+observa o que tem lá
+e transforma em código
+
+Em Python,
+sqlcodegen
+
+Data Reflections,
+reflexão de dados
+carregar informações sobre si mesmo
+do objeto de esquema de banco de dados correspondente.
+a um já existente dentro do banco de dados.
+
+No caso mais simples,
+você precisa apenas especificar o nome da tabela,
+um MetaDataobjeto e o autoload_withargumento:
+```
+    messages = Table('messages', metadata_obj, autoload_with=engine) # Tableobjet 
+    [c.name for c in messages.columns]
+```  
+
+A operação acima usará o mecanismo fornecido
+para consultar o banco de dados
+para obter informações sobre a messagestabela e,
+em seguida, gerará Column, ForeignKeye e outros objetos correspondentes a essas informações
+como se o Tableobjeto fosse construído à mão em Python.
+
+Quando as tabelas são refletidas,
+se uma determinada tabela faz referência a outra
+por meio de chave estrangeira,
+um segundo Tableobjeto é criado dentro do MetaDataobjeto que representa a conexão.
+
+Abaixo, suponha que a tabela shopping_cart_itemsfaça
+referência a uma tabela chamada shopping_carts.
+
+Refletir a shopping_cart_itemstabela
+tem o efeito de que a shopping_cartstabela também será carregada:
+```
+    shopping_cart_items = Table('shopping_cart_items', metadata_obj, autoload_with=engine)
+    'shopping_carts' in metadata_obj.tables:
+```  
+
+O MetaDatatem um comportamento "singleton-like" interessante,
+de modo que, se você solicitar as duas tabelas individualmente,
+MetaDatagarantirá que exatamente um Tableobjeto
+seja criado para cada nome de tabela distinto.
+
+O Tableconstrutor realmente retorna para você o Tableobjeto já existente
+se já existir um com o nome fornecido.
+
+Como abaixo, podemos acessar a shopping_cartstabela já gerada apenas nomeando-a:
+
+```
+shopping_carts = Table('shopping_carts', metadata_obj)
+```  
+
+Claro, é uma boa ideia usar autoload_with=enginecom
+a tabela acima independentemente.
+
+Isto é para que os atributos da tabela sejam carregados
+caso ainda não tenham sido carregados.
+
+A operação de autoload só ocorre para a tabela
+se ela ainda não tiver sido carregada;
+uma vez carregadas,
+novas chamadas para Tablecom
+o mesmo nome não emitirão novamente nenhuma consulta de reflexão.
+
+# https://docs.sqlalchemy.org/14/core/reflection.html
+
+---
+
+* Reflexões brutas.
+  Eles aceleram todos os tipos de consultas e
+  permitem otimizar o desempenho em um subconjunto
+  de linhas ou colunas
+  para qualquer fonte de dados ou o conjunto de dados completo.
+
+* Reflexões de Agregação.
+  Isso acelera ainda mais as consultas no estilo BI
+  que envolvem agregações e agrupar por operações.
+  Eles também podem ser configurados
+  para funcionar em um subconjunto
+  de linhas ou colunas de uma fonte de dados.
+
+# https://www.dremio.com/resources/tutorials/getting-started-with-data-reflections/

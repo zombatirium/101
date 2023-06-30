@@ -1,0 +1,78 @@
+Array
+conjunto que contêm elementos do mesmo tipo
+e de tamanho fixo
+sequencialmente, contíguamente, um a trás do outro
+na fita de bits
+em uma stack
+
+## ARRAY BOUNDS
+  Em linguagens mais modernas,
+  caso não seja exmplicitamente dito o tamanho do array
+  será pré-alocado um espaço maior 
+  que o correspondente ao tipo da definição
+
+  Caso chegue ao fim do array,
+  cria-se um novo array
+  e copia-se elemento a elemento para o novo array
+
+Quando associa-se uma variável a um array
+na realidade, aponta-se para o
+endereço do primeiro elemento contido dentro do array
+
+  EX:
+    unit8_t lista[] = {1, 2, 3, 4, 5}
+
+Para pegar uma posição específica dentro do array
+pega-se o endereço inicial e
+soma-se ao elemento do tipo contido
+
+acesso_ao_elemento = endereço_do_primeiro + (comprimento_de_cada_elemento * posição)
+
+  EX 1:
+    unit8_t lista[] = {1, 2, 3, 4, 5}
+
+      ffffdc73 1
+      ffffdc74 2
+      ffffdc75 3
+      ffffdc76 4
+      ffffdc77 5
+
+      acesso_ao_elemento = endereço_do_primeiro + (comprimento_de_cada_elemento * posição)
+      acesso_ao_elemento = ffffdc73 + (1byte * 4)
+      acesso_ao_elemento = ffffdc73 + 4byte
+      acesso_ao_elemento = ffffdc77
+      acesso_ao_elemento =    5
+
+  EX 2: Pegue a sétima letra contida dentro deste array
+    char palavra[] = "Hello World";
+
+      ffffdc80 d
+      ffffdc79 l
+      ffffdc78 r
+      ffffdc77 o
+      ffffdc76 W
+      ffffdc75  
+      ffffdc74 o
+      ffffdc72 l
+      ffffdc73 l
+      ffffdc71 e
+      ffffdc70 H
+
+      acesso_ao_elemento = endereço_do_primeiro + (comprimento_de_cada_elemento * posição)
+      acesso_ao_elemento = ffffdc70 + (1byte * 6)
+      acesso_ao_elemento = ffffdc70 + 6byte
+      acesso_ao_elemento = ffffdc76
+      acesso_ao_elemento =    W
+
+
+Note que nos exemplos acima,
+os valores adicionados ao array,
+vão do menor (mais baixos) para o maior (mais altos) endereço
+(ffffdc70 -> ffffdc80)
+isso acontece em função do array estar armazenado no ROData (em C)
+e na stack as variáveis são referência com endereço para esse string
+caso fosse armazenado na heap (com malloc, por exemplo), 
+seria na direção contrária: (ffffdc80 -> ffffdc70)
+
+No final do array,
+está o caractere nulo (\0)

@@ -1,0 +1,30 @@
+3-address code, Código de três endereços
+é um código intermediário 
+usado pela otimização de compiladores 
+para auxiliar na implementação de transformações 
+de melhoria de código. 
+Cada instrução TAC 
+tem no máximo três operandos e 
+é normalmente uma combinação de atribuição e um operador binário.
+Por exemplo, t1 := t2 + t3.
+
+
+# EX:
+
+    x = (-b + sqrt (b ^ 2 - 4 * a * c)) / (2 * a)
+
+    t1: = b * b
+    t2: = 4 * a
+    t3: = t2 * c
+    t4: = t1 - t3
+    t5: = sqrt (t4)
+    t6: = 0 - b
+    t7: = t5 + t6
+    t8 := 2 * a
+    t9: = t7 / t8
+    x: = t9
+
+
+# REFERÊNCIA
+  https://en.wikipedia.org/wiki/Three-address_code
+

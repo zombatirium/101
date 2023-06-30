@@ -1,0 +1,10 @@
+coredump, 
+um despejo de núcleo, 
+despejo de travamento, 
+despejo de memória ou 
+despejo de sistema 
+consiste do estado 
+gravado da memória de trabalho de um programa de computador 
+em um momento específico, 
+geralmente quando o programa trava ou 
+quando foi encerrado de maneira anormal.

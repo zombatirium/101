@@ -1,0 +1,63 @@
+enumerable, enum type
+sequências fixas de valores
+consiste em um conjunto de valores nomeados 
+chamados de:
+elementos,
+membros, 
+enumeral ou 
+enumeradores de tipo
+
+Os nomes dos enumeradores 
+são geralmente:
+identificadores 
+que se comportam como: 
+constantes na linguagem
+
+Um tipo enumerado 
+pode ser visto como:
+uma união degenerada 
+marcada por unit type (tipo unitário)
+
+tem valores que são diferentes uns dos outros e
+que podem ser comparados e atribuídos, 
+mas não são especificados pelo programador 
+como tendo qualquer representação concreta particular na memória do computador; 
+compiladores e 
+interpretadores podem representá-los arbitrariamente.
+
+é um tipo de dado abstrato, 
+cujos valores são atribuídos a:
+exatamente um elemento de um conjunto finito de identificadores 
+escolhidos pelo programador. 
+Esse tipo é geralmente usado para:
+variáveis categóricas (como os naipes de um baralho), 
+que não possuem uma ordem numérica definida.
+
+EX1: SWIFT
+  enum CardSuit {
+       case clubs, diamonds, hearts, spades
+  }
+  enum CardSuit {
+   case clubs
+   case diamonds
+   case hearts
+   case spades
+  }
+  
+EX2: RUST
+  enum Message {
+      Quit,
+      Move { x: i32, y: i32 },    // struct
+      Write(String),              // single-element tuple
+      ChangeColor(i32, i32, i32), // three-element tuple
+  }
+
+EX3: GO
+  type ByteSize float64
+
+  const (
+      _           = iota // ignore first value by assigning to blank identifier
+      KB ByteSize = 1 << (10 * iota)
+      MB
+      GB
+  )

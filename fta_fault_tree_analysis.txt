@@ -1,0 +1,15 @@
+Fault Tree Analysis (FTA),
+Árvore de Análise de Falhas,
+método de é uma análise de falha dedutiva 
+de cima para baixo 
+na qual um estado indesejado de um sistema é analisado 
+usando a lógica booleana 
+para combinar uma série de eventos de nível inferior. 
+
+Este método de análise é usado principalmente em:
+engenharia de segurança e engenharia de confiabilidade.
+Para entender como os sistemas podem falhar. 
+Para identificar as melhores maneiras de reduzir o risco e 
+para determinar (ou ter uma ideia) as taxas de eventos 
+de um acidente de segurança ou 
+um nível de sistema específico (funcional) fracasso.

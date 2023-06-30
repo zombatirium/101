@@ -1,0 +1,10 @@
+Command Query Reponsibility Segregation
+Separação das Operações de Comando e de Consulta, 
+um padrão que separa as operações de leitura e atualização 
+para um armazenamento de dados. 
+Implementar o CQRS em seu aplicativo 
+pode maximizar seu desempenho, 
+escalabilidade e segurança.
+
+# REFERÊNCIA
+https://docs.microsoft.com/pt-br/azure/architecture/patterns/cqrs#:~:text=CQRS%20significa%20Separa%C3%A7%C3%A3o%20das%20Opera%C3%A7%C3%B5es,seu%20desempenho%2C%20escalabilidade%20e%20seguran%C3%A7a.

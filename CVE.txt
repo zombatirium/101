@@ -1,0 +1,9 @@
+Commom Vunerability Exposed, CVE
+é um banco de dados 
+que registra vulnerabilidades e exposições 
+relacionadas a segurança da informação conhecidas publicamente
+
+[Mitre Autoridades - Banco de Dados com catálogos CVE](https://cve.mitre/cve/request_id.html)
+[Mitre - Banco de Dados com catálogos CVE](https://cve.mitre.org)
+[NVD - Nist, Banco de Dados com vulnerabilidades](https://nvd.nist.gov)
+

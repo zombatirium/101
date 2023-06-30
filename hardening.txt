@@ -1,0 +1,10 @@
+Hardening, ou blindagem, 
+é um processo de mapeamento das ameaças, 
+mitigação dos riscos e 
+execução das atividades corretivas, 
+com foco na infraestrutura e objetivo principal de: 
+torná-la preparada para enfrentar tentativas de ataque.
+
+
+# REFERÊNCIA
+https://minutodaseguranca.blog.br/hardening-porque-como-planejar-e-qual-o-padrao-recomendado/

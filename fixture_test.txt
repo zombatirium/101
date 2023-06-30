@@ -1,0 +1,9 @@
+fixture ou 
+test fixture 
+é um ambiente usado para testar 
+consistentemente algum item, 
+dispositivo ou 
+parte de software. 
+Os fixtures podem ser encontrados 
+ao testar componentes eletrônicos, 
+softwares e dispositivos físicos

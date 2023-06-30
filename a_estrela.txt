@@ -1,0 +1,827 @@
+A* ou
+A estrela
+é um método de busca utilizado na área de inteligência artificial
+ou mesmo em jogos,
+principalmente em jogos de tiros
+
+Cujo objetivo é traçar a menor rota
+entre dois pontos: início e fim
+
+Neste algoritmo,
+é aplicada uma função de avaliação a cada um dos nós,
+antes de aplicar a função de tese ao objetivo
+
+
+# FUNÇÃO DE AVALIAÇÃO
+    F = G + H
+    G = custo de chegada até este nó atual (do inicial até o atual)
+    H = custo de chegada até o nó final
+
+# ESTADOS
+┌─────┐
+│  A  │ -> Estado Inicial
+└─────┘
+┌─────┐
+│  G  │ -> Estado Final
+└─────┘
+
+# EX 1
+
+    # Tabela de Heurísticas
+      Estado  |  Heurística (distância até o estado final)
+         A    |      30
+         B    |      26
+         C    |      21
+         D    |      07
+         E    |      22
+         F    |      36
+         G    |      00
+    
+    # GRID
+                  ┌─────┐    7    ┌─────┐   9    ┌─────┐
+         ┌────────│  C  │─────────│  E  │────────│  F  │
+      14 │        └─────┘         └─────┘        └─────┘
+         │           │   \            /  \
+      ┌─────┐        │    \          /    \
+      │  A  │      9 │  24 \     13 /      \ 29
+      └─────┘        │      \      /        \
+         │           │       \    /          \
+      12 │        ┌─────┐    ┌─────┐        ┌─────┐
+         └────────│  B  │────│  D  │────────│  G  │
+                  └─────┘ 38 └─────┘   9    └─────┘
+    
+    
+    # 1ª Execução
+    ┌─────┐ Funçao de Avaliação                            Funçao Tese
+    │  A  │ -------------------> F = 0 + 30 ---> F = 30 -------------------> NÂO É O ESTADO FINAL ---> VISITADO (ESTADO INICIAL)
+    └─────┘
+    
+    # 2ª Execução (FILHOS DE A)
+    ┌─────┐ Funçao de Avaliação                            Funçao Tese
+    │  B  │ -------------------> F = 12 + 26 ---> F = 38 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    ┌─────┐ Funçao de Avaliação                            Funçao Tese
+    │  C  │ -------------------> F = 14 + 21 ---> F = 35 -------------------> NÂO É O ESTADO FINAL ---> VISITADO (FILHO DE A)
+    └─────┘
+    
+    # 3ª Execução (FILHOS de C)
+    ┌─────┐ Funçao de Avaliação                                 Funçao Tese
+    │  D  │ -------------------> F = (14+24) + 7 ---> F = 45 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    ┌─────┐ Funçao de Avaliação                                 Funçao Tese
+    │  E  │ -------------------> F = (14+7) + 22 ---> F = 43 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    
+    # 4ª Execução (VISTA B, menor F entre B,D,E)
+    ┌─────┐ Funçao de Avaliação                            Funçao Tese
+    │  B  │ -------------------> F = 12 + 26 ---> F = 38 -------------------> NÂO É O ESTADO FINAL ---> VISITADO (FILHO DE A)
+    └─────┘
+    
+    # 5ª Execução (FILHOS de B)
+    ┌─────┐ Funçao de Avaliação                                 Funçao Tese
+    │  C  │ -------------------> F = (12+9) + 21 ---> F = 42 -------------------> NÂO É O ESTADO FINAL ---> VISITADO (FILHO DE B)
+    └─────┘
+    ┌─────┐ Funçao de Avaliação                                 Funçao Tese
+    │  D  │ -------------------> F = (12+50) + 7 ---> F = 57 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    
+    # 6ª Execução (FILHOS de C)
+    ┌─────┐ Funçao de Avaliação                                 Funçao Tese
+    │  D  │ -------------------> F = (12+21) + 7 ---> F = 52 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    ┌─────┐ Funçao de Avaliação                                 Funçao Tese
+    │  E  │ -------------------> F = (12+9) + 22 ---> F = 50 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    
+    # 7ª Execução (VISTA E, menor F entre FILHOS DE C (6ª) -> D,E && FILHO DE B (5ª) -> D && FILHO DE C (3ª) -> D)
+    ┌─────┐ Funçao de Avaliação                                 Funçao Tese
+    │  E  │ -------------------> F = (12+9) + 22 ---> F = 50 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    
+    # 8ª Execução (FILHOS de E)
+    ┌─────┐ Funçao de Avaliação                                    Funçao Tese
+    │  D  │ -------------------> F = (14+7+13) + 7 ---> F = 41 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    ┌─────┐ Funçao de Avaliação                                    Funçao Tese
+    │  E  │ -------------------> F = (14+7+9) + 36 ---> F = 66 -------------------> NÂO É O ESTADO FINAL ---> VISITADO (FILHO DE C)
+    └─────┘
+    ┌─────┐ Funçao de Avaliação                                    Funçao Tese
+    │  G  │ -------------------> F = (14+7+29) + 00 ---> F = 50 -------------------> ESTADO FINAL
+    └─────┘
+    
+    # 9ª Execução (VISTA E, menor F entre FILHOS DE C (6ª) -> D,E && FILHO DE B (5ª) -> D && FILHO DE C (3ª) -> D && FILHOS de E (8ª) -> D,F,G)
+    ┌─────┐ Funçao de Avaliação                                    Funçao Tese
+    │  D  │ -------------------> F = (14+7+13) + 7 ---> F = 41 -------------------> NÂO É O ESTADO FINAL
+    └─────┘
+    
+    # 10ª Execução (FILHOS de D)
+    ┌─────┐ Funçao de Avaliação                                     Funçao Tese
+    │  G  │ -------------------> F = (14+7+13+9) + 00 ---> F = 43 -------------------> ESTADO FINAL
+    └─────┘
+    
+    
+    # MELHOR CAMINHO
+    A -> C -> E -> D -> G => 43
+    
+                  ┌─────┐    7    ┌─────┐
+         ┌────────│  C  │─────────│  E  │
+      14 │        └─────┘         └─────┘
+         │                            /
+      ┌─────┐                        /
+      │  A  │                    13 /
+      └─────┘                      /
+                                  /
+                             ┌─────┐        ┌─────┐
+                             │  D  │────────│  G  │
+                             └─────┘   9    └─────┘
+
+
+    # EX 2
+        F = G + H
+        G = custo de chegada até este nó atual (do inicial até o atual)
+        H = custo de chegada até o nó final
+    ┌───────┐
+    │F      │
+    │   x   │
+    │G     H│
+    └───────┘
+
+    # ESTADOS
+    ┌───────┐
+    │F      │
+    │   K   │ -> Estado Inicial
+    │G     H│
+    └───────┘
+
+    ┌───────┐
+    │F      │
+    │   O   │ -> Estado Final
+    │G     H│
+    └───────┘
+
+    # LISTA ABERTA | LISTA FECHADA
+        LISTA ABERTA  -> Elementos trabalhados no momento (sempre executa o menor custo primeiro)
+        LISTA FECHADA -> Elementos não mais trabalhados
+
+
+    # GRID
+    ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+    │F      │ │F      │ │F      │ │F      │ │F      │
+    │   A   │ │   B   │ │   C   │ │   D   │ │   E   │
+    │G     H│ │G     H│ │G     H│ │G     H│ │G     H│
+    └───────┘ └───────┘ └───────┘ └───────┘ └───────┘
+    ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+    │F      │ │F      │ │F      │ │F      │ │F      │
+    │   F   │ │   G   │ │   -   │ │   I   │ │   J   │
+    │G     H│ │G     H│ │G     H│ │G     H│ │G     H│
+    └───────┘ └───────┘ └───────┘ └───────┘ └───────┘
+    ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+    │F      │ │F      │ │F      │ │F      │ │F      │
+    │   K   │ │   L   │ │   -   │ │   N   │ │   O   │
+    │G     H│ │G     H│ │G     H│ │G     H│ │G     H│
+    └───────┘ └───────┘ └───────┘ └───────┘ └───────┘
+    ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+    │F      │ │F      │ │F      │ │F      │ │F      │
+    │   P   │ │   Q   │ │   -   │ │   S   │ │   T   │
+    │G     H│ │G     H│ │G     H│ │G     H│ │G     H│
+    └───────┘ └───────┘ └───────┘ └───────┘ └───────┘
+    ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+    │F      │ │F      │ │F      │ │F      │ │F      │
+    │   U   │ │   V   │ │   W   │ │   X   │ │   Y   │
+    │G     H│ │G     H│ │G     H│ │G     H│ │G     H│
+    └───────┘ └───────┘ └───────┘ └───────┘ └───────┘
+
+
+    # 1ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+           K       |       
+           F       |       
+           l       |       
+           P       |       
+
+    ┌───────┐
+    │6      │
+    │   F   │
+    │1     5│
+    └───────┘
+    ┌───────┐ ┌───────┐
+    │F      │ │4      │
+    │   K   │ │   L   │
+    │G     H│ │1     3│
+    └───────┘ └───────┘
+    ┌───────┐
+    │6      │
+    │   P   │
+    │1     5│
+    └───────┘
+
+    # 2ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+           L       |       
+           F       |       
+           P       |       
+
+              ┌───────┐
+              │6      │
+              │   G   │
+              │2     4│
+              └───────┘
+    ┌───────┐ ┌───────┐
+    │F      │ │4      │
+    │   K   │ │   L   │
+    │G     H│ │1     3│
+    └───────┘ └───────┘
+              ┌───────┐
+              │6      │
+              │   Q   │
+              │2     4│
+              └───────┘
+
+    # 3ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+           F       |       
+           P       |       
+           G       |       
+           Q       |       
+
+    ┌───────┐
+    │8      │
+    │   A   │
+    │2     6│
+    └───────┘
+    ┌───────┐
+    │6      │
+    │   F   │
+    │1     5│
+    └───────┘
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+
+
+    # 4ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+           P       |       
+           G       |       
+           Q       |       
+           A       |       
+
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+    ┌───────┐
+    │6      │
+    │   P   │
+    │1     5│
+    └───────┘
+    ┌───────┐
+    │8      │
+    │   U   │
+    │2     6│
+    └───────┘
+
+    # 5ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+           G       |       
+           Q       |       
+           A       |       
+           U       |       
+
+              ┌───────┐
+              │8      │
+              │   B   │
+              │3     5│
+              └───────┘
+              ┌───────┐
+              │6      │
+              │   G   │
+              │2     4│
+              └───────┘
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+
+    # 6ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+           Q       |       
+           A       |       
+           U       |       
+           B       |       
+
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+              ┌───────┐
+              │6      │
+              │   Q   │
+              │2     4│
+              └───────┘
+              ┌───────┐
+              │8      │
+              │   V   │
+              │3     5│
+              └───────┘
+
+    # 7ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+           A       |       
+           U       |       
+           B       |       
+           V       |       
+
+    # 8ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+           U       |       
+           B       |       
+           V       |       
+
+    # 9ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+           B       |       
+           V       |       
+
+    # 10ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+           B       |       
+           V       |       
+              ┌───────┐ ┌───────┐
+              │8      │ │8      │
+              │   B   │ │   C   │
+              │3     5│ │4     4│
+              └───────┘ └───────┘
+
+
+
+
+
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+
+    # 11ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+           V       |       
+           C       |       
+
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+
+
+
+
+
+              ┌───────┐ ┌───────┐
+              │8      │ │8      │
+              │   V   │ │   W   │
+              │3     5│ │4     4│
+              └───────┘ └───────┘
+
+    # 12ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+           C       |       
+           W       |       
+                        ┌───────┐ ┌───────┐
+                        │8      │ │8      │
+                        │   C   │ │   D   │
+                        │4     4│ │5     3│
+                        └───────┘ └───────┘
+
+
+
+
+
+    ┌───────┐
+    │F      │ 
+    │   K   │
+    │G     H│
+    └───────┘
+
+    # 13ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+           D       |       
+           X       |       
+
+    ┌───────┐
+    │F      │ 
+    │   K   │
+    │G     H│
+    └───────┘
+
+
+
+
+
+                        ┌───────┐ ┌───────┐
+                        │8      │ │8      │
+                        │   W   │ │   X   │
+                        │4     4│ │5     3│
+                        └───────┘ └───────┘
+    # 14ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+           D       |       
+           X       |       
+           E       |       
+           I       |       
+
+                                  ┌───────┐ ┌───────┐
+                                  │8      │ │8      │
+                                  │   D   │ │   E   │
+                                  │5     3│ │6     2│
+                                  └───────┘ └───────┘
+                                  ┌───────┐
+                                  │8      │
+                                  │   I   │
+                                  │6     2│
+                                  └───────┘
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+
+    # 15ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+                   |       D
+           X       |       
+           E       |       
+           I       |       
+
+    ┌───────┐
+    │F      │ 
+    │   K   │
+    │G     H│
+    └───────┘
+
+
+
+
+
+                                  ┌───────┐
+                                  │8      │
+                                  │   S   │
+                                  │6     2│
+                                  └───────┘
+                                  ┌───────┐ ┌───────┐
+                                  │8      │ │8      │
+                                  │   X   │ │   Y   │
+                                  │5     3│ │6     2│
+                                  └───────┘ └───────┘
+
+    # 16ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+                   |       D
+                   |       X
+           E       |       
+           I       |       
+           S       |       
+           Y       |       
+
+                                            ┌───────┐
+                                            │8      │
+                                            │   E   │
+                                            │6     2│
+                                            └───────┘
+                                            ┌───────┐
+                                            │8      │
+                                            │   J   │
+                                            │7     1│
+                                            └───────┘
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+
+    # 17ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+                   |       D
+                   |       X
+                   |       E
+           I       |       
+           S       |       
+           Y       |       
+           J       |       
+
+                                  ┌───────┐
+                                  │8      │
+                                  │   I   │
+                                  │6     2│
+                                  └───────┘
+    ┌───────┐                     ┌───────┐
+    │F      │                     │8      │
+    │   K   │                     │   N   │
+    │G     H│                     │7     1│
+    └───────┘                     └───────┘
+
+    # 18ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+                   |       D
+                   |       X
+                   |       E
+                   |       I
+           S       |       
+           Y       |       
+           J       |       
+           N       |       
+
+    ┌───────┐
+    │F      │
+    │   K   │
+    │G     H│
+    └───────┘
+                                  ┌───────┐ ┌───────┐
+                                  │8      │ │8      │
+                                  │   S   │ │   T   │
+                                  │6     2│ │7     1│
+                                  └───────┘ └───────┘
+
+    # 19ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+                   |       D
+                   |       X
+                   |       E
+                   |       I
+                   |       S
+           Y       |       
+           J       |       
+           N       |       
+           T       |       
+
+
+    # 20ª Execução
+
+    # LISTA ABERTA | LISTA FECHADA
+                   |       K
+                   |       L
+                   |       F
+                   |       P
+                   |       G
+                   |       Q
+                   |       A
+                   |       U
+                   |       B
+                   |       V
+                   |       C
+                   |       W
+                   |       D
+                   |       X
+                   |       E
+                   |       I
+                   |       S
+                   |       Y
+           J       |       
+           N       |       
+           T       |       
+
+                                            ┌───────┐
+                                            │8      │
+                                            │   J   │
+                                            │7     1│
+                                            └───────┘
+    ┌───────┐                               ┌───────┐
+    │F      │                               │8      │
+    │   K   │                               │   O   │
+    │G     H│                               │7     1│
+    └───────┘                               └───────┘
+
+
+    CHEGOU NA CÈLULA FINAL
+
+
+                                            ┌───────┐
+                                            │8      │
+                                            │   J   │
+                                            │7     1│
+                                            └───────┘
+
+              ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+              │8      │ │8      │ │8      │ │8      │
+              │   B   │ │   C   │ │   D   │ │   E   │
+              │3     5│ │4     4│ │5     3│ │6     2│
+              └───────┘ └───────┘ └───────┘ └───────┘
+              ┌───────┐                     ┌───────┐
+              │6      │                     │8      │
+              │   G   │                     │   J   │
+              │2     4│                     │7     1│
+              └───────┘                     └───────┘
+    ┌───────┐ ┌───────┐                     ┌───────┐
+    │F      │ │4      │                     │8      │
+    │   K   │ │   L   │                     │   O   │
+    │G     H│ │1     3│                     │7     1│
+    └───────┘ └───────┘                     └───────┘
+
+
+# PSEUDOCÒDIGO
+ABERTA // Lista de nós que serão analisados
+FECHADA // Lista de nós que já foram analisados
+
+Adicione o nó INICIO na lista ABERTA
+
+repita {
+    ATUAL = nó da lista ABERTA com menor F
+    remova ATUAL da lista ABERTA
+    insira ATUAL na lista FECHADA
+
+    se ( ATUAL == FIM ) // Encontraremos um caminho
+        retorne;
+    se ( lista ABERTA estiver vazia ) // NÂO encontramos um caminho
+        retorne;
+
+    para cada VIZINHO de ATUAL
+        se ( VIZINHO é um bloqueio OU VIZINHO está na lista FECHADA )
+            passe para o próximo VIZINHO
+
+        se ( VIZINHO não está na lista ABERTA )
+            defina ATUAL como nó pai de VIZINHO
+            calcule G, H e F de VIZINHO
+            insira VIZINHO na lista ABERTA
+        senão se ( VIZINHO está na lista ABERTA E passar por ATUAL produz um valor G menor )
+            recalcule G e F de VIZINHO
+            defina@s ATUAL como nó pai de VIZINHO
+}
+
+
+# REFERÊNCIAS
+[Algoritmo de Busca A Estrela (A_)](https://www.youtube.com/watch?=UwtjG1BUHJA)
+[Busca Heurística (Parte 2) - Busca A_ (A estrela)](https://www.youtube.com/watch?=FU6JQaRMMDM)
+[Demonstrando algoritmo A_ (Pathfinding)](https://www.youtube.com/watch?=s29WpBi2exw)
+[Explicação do Algoritmo A_ (A Star)](https://www.youtube.com/watch?=o5_mqZKhTvw)

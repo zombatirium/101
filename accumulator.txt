@@ -1,0 +1,11 @@
+Accumulator,
+é um registro 
+no qual os resultados da ULA 
+unidade lógica aritmética intermediária 
+são armazenados. 
+
+OBS:
+    acumulador de carga do registro/memória (por exemplo, "LDA r") e 
+    acumulador de armazenamento para registro/memória (por exemplo, "STA r"). 
+    O modelo de Knuth também possui muitas outras instruções.
+

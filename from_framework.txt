@@ -1,0 +1,13 @@
+Para entender Framework
+  Por que usar React?
+    Ajuda a construir a parte de interface da app web
+
+  Como ele ajuda a fazer isso?
+    Criando componentes que transforman dados em HTML
+
+  Como ele faz essa transformação?
+    React possui estados em que um componente será renderizado
+
+  Que é componente?
+  Que é estado de um componente?
+  Como, através de uma ação, pegar o estado atual e gerar um novo estado?

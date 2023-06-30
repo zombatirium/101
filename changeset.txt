@@ -1,0 +1,9 @@
+No software de controle de versão, 
+um changeset é:
+um conjunto formalmente coletado de commits 
+que devem ser tratados como um grupo. 
+
+# Ex: 
+  => mudanças entre duas versões sucessivas de um repositório. 
+  => Os commits envolvidos no lançamento de um determinado recurso
+

@@ -1,0 +1,36 @@
+AST (Abstract Syntax Tree) or
+syntax tree or
+Árvores sintáticas abstratas ou
+Árvore de sintaxe.
+
+São estrturas de dados em forma de árvore
+onde cada nó denota uma construção ocorrendo no código-fonte.
+
+A sintaxe é "abstrata",
+no sentido de não representar todos os detalhes 
+que aparecem na sintaxe real, 
+mas apenas os detalhes estruturais ou relacionados ao conteúdo.
+
+
+EX: 
+    Gramática: Exp -> Exp * Exp | Exp + Exp | id
+    Programa:  a + b * c 
+               5 + 1 * 12
+
+                  +
+                /   \
+               id    *
+                    /  \
+                   id  id
+
+
+                  +
+                /   \
+               5     *
+                    / \
+                   1  12
+
+https://engineering.mongodb.com/post/transpiling-between-any-programming-languages-part-1
+https://slideplayer.com/slide/6380045/
+https://www.geeksforgeeks.org/syntax-directed-translation-in-compiler-design/
+https://www.ques10.com/p/21838/distinguish-between-1-syntax-tree-and-parse-trees-/

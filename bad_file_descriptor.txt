@@ -1,0 +1,24 @@
+Em geral, 
+quando "Bad File Descriptor" é encontrado, 
+isso significa que 
+o descritor de arquivo de soquete 
+que você passou para a API 
+não é válido, 
+o que tem vários motivos possíveis:
+
+1. O fd já está fechado em algum lugar.
+2. O fd tem um valor errado, que é inconsistente com o valor obtido de socket() api
+
+
+GNU:
+  Macro: int EBADF
+  Bad file descriptor; 
+  EX:
+    I/O on a descriptor 
+    that has been closed or 
+    reading from a descriptor 
+    open only for writing (or vice versa).
+
+
+[Descritor de arquivo inválido com o Linux Socket write() Descritor de arquivo inválido C](https://stackoverflow.com/questions/11258781/bad-file-descriptor-with-linux-socket-write-bad-file-descriptor-c)
+[GNU - Erro Code](https://ftp.gnu.org/old-gnu/Manuals/glibc-2.2.3/html_node/libc_17.html#:~:text=Bad%20file%20descriptor%3B%20for%20example,writing%20(or%20vice%20versa).&text=There%20are%20no%20child%20processes,t%20any%20processes%20to%20manipulate.)

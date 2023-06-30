@@ -1,0 +1,6 @@
+Binding, ligação, 
+é uma interface de programação de aplicativo (API) 
+que fornece glue code (código de cola) 
+feito especificamente para permitir que:
+uma linguagem de programação use uma biblioteca estrangeira 
+ou serviço de sistema operacional (que não seja nativo para essa linguagem).

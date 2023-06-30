@@ -1,0 +1,31 @@
+currying 
+é uma técnica de transformação de uma função 
+que recebe múltiplos parâmetros 
+de forma que ela pode ser chamada 
+como uma cadeia de funções 
+que recebem somente um parâmetro cada. 
+
+Foi inventada por Moses Schönfinkel e Gottlob Frege, 
+e independentemente por Haskell Curry
+
+Nome dado à técnica de dividirmos uma função 
+que recebe vários argumentos 
+numa série de funções 
+cada uma lidando com um argumento da função inicial.
+
+
+EX:
+  let foo = fun a b ->
+    a * a + b * b
+
+          ou
+
+  let foo = fun a ->
+    fun b ->
+      a * a + b * b
+
+  foo 1 2
+
+
+# https://rodrigorgs.github.io/aulas/mata56/aula14-currying#:~:text=Currying%20%C3%A9%20o%20processo%20de,e%20retorna%20outra%20fun%C3%A7%C3%A3o%20curried.&text=Aplica%C3%A7%C3%A3o%20parcial%20de%20uma%20fun%C3%A7%C3%A3o,do%20que%20a%20fun%C3%A7%C3%A3o%20recebe.
+# https://pt.stackoverflow.com/questions/21215/o-que-%C3%A9-e-quais-as-vantagens-do-currying

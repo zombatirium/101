@@ -1,0 +1,36 @@
+"A programação genérica é uma abordagem de programação 
+que se concentra no projeto de algoritmos e
+estruturas de dados 
+para que funcione no ambiente mais geral 
+sem perda de eficiência ... 
+A programação genérica é mais uma atitude 
+em relação à programação 
+do que um conjunto particular de ferramentas."
+https://julia.quantecon.org/more_julia/generic_programming.html
+
+
+Paradigma de programação no qual os algoritmos 
+são escritos em uma gramática estendida.
+
+Algoritmos esses que são escritos em termos de tipos 
+a serem especificados posteriormente.
+Após serem instanciados, caso haja necessidade,
+serão especificados para tipos fornecidos como parâmetros.
+
+Para efeitos práticos, o paradigma permite que:
+um parâmetro assuma diferentes tipos de dados 
+desde que certas regras sejam mantidas,
+como sub-tipos e assinaturas.
+
+EX:
+    "Declaração de uma lista. T = tipo de dado genérico"
+    lista = List<T> 
+
+    "Instância de uma lista."
+    lista: List<Int> = [1, 2, 3, 4, 5]
+
+    "Instância de uma lista."
+    lista: List<String> = ["bunda", "de", "macaco"]
+
+
+https://en.wikipedia.org/wiki/Generic_programming

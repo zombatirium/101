@@ -1,0 +1,46 @@
+Facade pattern, 
+padrão de projeto (também escrito fachada ) 
+é um padrão de design de software 
+comumente usado em programação orientada a objetos. 
+
+Análogo a uma fachada em arquitetura, 
+uma fachada é um objeto 
+que serve como uma interface frontal 
+mascarando um código estrutural ou 
+subjacente mais complexo. 
+
+Uma fachada pode:
+
+  => melhorar a legibilidade e 
+     usabilidade de uma biblioteca de software, 
+     mascarando a interação 
+     com componentes mais complexos 
+     por trás de uma única 
+     (e muitas vezes simplificada) 
+     API
+
+  => fornecer uma interface específica ao contexto 
+     para uma funcionalidade mais genérica 
+     (completa com validação de entrada específica ao contexto)
+
+  => servir como um ponto de partida 
+     para um refator mais amplo de sistemas monolíticos ou 
+     fortemente acoplados 
+     em favor de um código mais fracamente acoplado
+
+
+Os desenvolvedores costumam 
+usar o padrão de design de fachada 
+quando um sistema é muito complexo ou 
+difícil de entender 
+porque o sistema tem muitas classes interdependentes ou 
+porque seu código-fonte não está disponível. 
+
+Esse padrão oculta as complexidades do sistema maior e 
+fornece uma interface mais simples para o cliente. 
+Normalmente envolve uma única classe de invólucro 
+que contém um conjunto de membros exigidos pelo cliente. 
+
+Esses membros acessam o sistema 
+em nome do cliente de fachada e 
+ocultam os detalhes de implementação.

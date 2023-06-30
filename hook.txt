@@ -1,0 +1,10 @@
+hook,
+o termo hooking 
+cobre uma série de técnicas 
+utilizadas para modificar ou 
+melhorar o comportamento de um sistema operacional, 
+aplicações ou 
+outros componentes de software 
+através da interceptação de chamadas de funções, 
+mensagens ou 
+eventos passados entre componentes de software

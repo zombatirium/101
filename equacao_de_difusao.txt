@@ -1,0 +1,6 @@
+Equação de difusão
+Movimento dimensional.
+Estou atuado para suavizar a função. 
+Onde quer que haja curvas, essas são as que mudam mais rapidamente.
+Então, com o tempo, você sabe se a distribuição de calor ou
+a distribuição molecular tende a ficar mais suave

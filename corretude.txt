@@ -1,0 +1,8 @@
+Na Ciência da computação teórica, 
+a corretude de um algoritmo pode ser afirmada 
+quando se diz que o algoritmo é correto 
+com respeito à determinada especificação.
+
+OBS: prove antes da coisa começar
+
+https://www.youtube.com/c/CarlaNegriLintzmayer/videos

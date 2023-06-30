@@ -1,0 +1,43 @@
+Vi C99 em texto e fiquei curioso existe alguma diferença entre o C normal e o C99?
+
+  C é a linguagem. Em 84 ela começou se tornar ANSI após um comitê liberar primeiros rascunhos da especificação da linguagem.
+
+  Em 89 ela teve sua especificação ratificada mundialmente e algumas pessoas chamam de C89. 
+
+  Em 99 houve uma atualização dessa especificação chamada C99 e teve outra em 2011 chamada C11, finalmente chegamos na C18, que é quase irrelevante.
+  
+  Os compiladores deveriam se conformar com uma das especificações e dizer isso.
+  
+  Um rascunho dela.
+  
+  Obviamente que cada revisão coloca novos recursos (bom, C11 deixou alguns antes obrigatórios como opcionais, e tornou obsoleto alguns outros).
+  
+  Alguns exemplos de novidades adicionadas nela:
+  
+  Funções em linha
+  Remoção de restrições sobre a localização da declaração de variáveis (como em C++)
+  Adição de vários tipos de dados novos, incluindo o long long int (para minimizar problemas na transição de 32-bits para 64-bits), um tipo de dados boolean explicito (chamado _Bool) e um tipo complex que representa números complexos
+  Vetores de dados de comprimento variável (o vetor pode ter um tamanho diferente a cada execução de uma função, mas não cresce depois de criado)
+  Suporte oficial para comentários de uma linha iniciados por //, emprestados da linguagem C++
+  Várias funções de biblioteca novas, tais como snprintf()
+  Vários arquivos cabeçalho novos, tais como stdint.h
+
+
+
+Qual é a versão mais atualizada da linguagem C e qual é o compilador que melhor funciona?
+
+  Hoje C18 é a especificação mais atualizada onde GCC 8 e Clang 6 estão suportando, mas em essência muda nada importante em relação ao C11.
+  
+  Poucas pessoas usam o C11, a especificação anterior e que importa agora, porque recursos dela não são suportados pela maioria dos compiladores e seria problemático portar. Até adotam alguma coisa porque parte dela é dizer que algumas coisas do C99 não são mais obrigatórias.
+  
+  Em geral adota-se C99, alguns preferem C89 que é muito atrasada (a primeira especificação universal) e na prática só é necessária se for usar em compiladores muito ruins ou obscuros, e se precisar suportá-lo no seu código, já terá que fazer outras coisas específicas. Raro o compilador que suporta 100% do C99, mas o que não é suportado já é polêmico e evita-se usar por outros motivos.
+  
+  Então na prática o que adota-se é um híbrido de C89, C99 e C11.
+  
+  Não existe isso de compilador que melhor funciona. Ou funciona ou não. Alguns podem fazer algo melhor, mas é ponto específico e não geral.
+  
+  Quem usa no Windows tende usar o compilador da Microsoft. Já em Linux tendem usar o GCC, no Mac usam Clang, mas este tem sido adotado por muita gente, inclusive meio que virou padrão em no FreeBSD. Há alguns que usam Intel por otimizações específicas, mas é raro. Outros só são usados por causa de plataforma ou necessidade específica ou legado. Os primeiros suportam todas as principais plataformas. Sim, ao contrário do que você pensa, o compilador da Microsoft gera código perfeito para Linux, Mac, Android, etc.
+
+# REFERÊNCIAS
+[Qual a diferença entre C e C99?](https://pt.stackoverflow.com/questions/295685/qual-a-diferen%C3%A7a-entre-c-e-c99)
+[Qual é a versão mais atualizada da linguagem C e qual é o compilador que melhor funciona?](https://pt.stackoverflow.com/questions/328085/qual-%c3%a9-a-vers%c3%a3o-mais-atualizada-da-linguagem-c-e-qual-%c3%a9-o-compilador-que-melhor)

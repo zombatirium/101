@@ -1,0 +1,17 @@
+criptomoedas
+dinheiro digital, criptografado e anônimo
+
+Usam tecnologia descentralizada para permitir
+que usuários realizem pagamentos seguros e armazenem seu dinheiro
+
+Endereço
+    Destino específico na rede para onde uma criptomoeda é enviada.
+    Como se fosse um "número de conta" usado para receber e manter valores.
+
+ICO
+    Initial Coin Offering, oferta de uma nova criptomoeda ao público
+    em troca de moedas, similar a IPO (Initial Public Offering)
+    tem como objetivo levantar fundos.
+
+Faucets
+    site que permitem receber pequenas quantidades de criptomoedas.

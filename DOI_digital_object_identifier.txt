@@ -1,0 +1,11 @@
+DOI 
+representa um sistema de identificação numérico 
+para conteúdo digital, 
+como livros, 
+artigos eletrônicos e 
+documentos em geral. 
+ 
+Foi desenvolvido em 1994 
+pela Associação de Publicadores Americanos (AAP), 
+com a finalidade de autenticar a base administrativa 
+de conteúdo digital.

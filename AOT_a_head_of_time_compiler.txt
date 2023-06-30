@@ -1,0 +1,11 @@
+Compilçação AOT
+Compilçação Antecipada
+é o ato de compilar uma linguagem de programação 
+(geralmente) 
+de nível superior 
+em uma linguagem de nível inferior 
+(geralmente) 
+antes da execução de um programa, 
+geralmente em tempo de compilação, 
+para reduzir a quantidade de trabalho necessário 
+a ser executado em tempo de execução.

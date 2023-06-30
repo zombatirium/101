@@ -1,0 +1,32 @@
+Endianness, extremidade
+refere-se a ordem (de bytes) utilizada 
+para representar determinado tipo de dado
+
+Os comando lscpu, permite verificar qual a ordem utilizada
+
+EX ANO:
+    big-endian: bit mais significativo -> menor endereço de memória
+        AAAA-MM-DD
+        
+    middle-endian
+        MM-DD-AAAA
+        
+    litle-endian: bit menos significativo -> menor endereço de memória
+        DD-MM-AAAA
+        
+    OBS: os número individualmente representados
+            estão todos em big-endian
+            
+
+EX 0A0B0C0D:
+    big-endian: bit mais significativo -> menor endereço de memória
+        |__               0A ------- a          == mais significativo
+        |____            0B ------- a + 1
+        |______         0C ------- a + 2
+        |________      0D ------  a + 3
+        
+    litle-endian: bit menos significativo -> maior endereço de memória
+        |__               0D ------- a          == menos significativo
+        |____            0C ------- a + 1
+        |______         0B ------- a + 2
+        |________      0A ------  a + 3

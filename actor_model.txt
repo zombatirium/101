@@ -1,0 +1,39 @@
+O modelo ator adota a filosofia de que tudo é ator.
+Isso é semelhante à filosofia de
+tudo é um objeto
+usada por algumas linguagens de programação orientadas a objetos.
+
+Um ator é uma entidade computacional que,
+em resposta a uma mensagem que recebe,
+pode, concorrentemente:
+
+    enviar um número finito de mensagens para outros atores;
+    criar um número finito de novos atores;
+    designar o comportamento a ser usado para a próxima mensagem que receber.
+
+Não há sequência assumida para as ações acima
+e elas podem ser realizadas em paralelo.
+
+Desacoplar o remetente das comunicações enviadas
+foi um avanço fundamental do modelo de ator,
+permitindo a comunicação assíncrona
+e estruturas de controle como padrões de passagem de mensagens
+
+Os destinatários das mensagens são identificados por endereço,
+às vezes chamado de "endereço de correspondência".
+
+Assim, um ator só pode se comunicar com atores
+cujos endereços ele possui.
+
+Ele pode obtê-los de uma mensagem que recebe,
+ou se o endereço for para um ator que ele mesmo criou.
+
+O modelo de ator é caracterizado pela simultaneidade
+inerente de dentro da computação e entre atores,
+criação dinâmica de atores,
+inclusão de endereços de atores em mensagens e
+interação apenas por meio de transmissão assíncrona direta
+de mensagens sem restrição na ordem de chegada das mensagens.
+
+REFERÊNCIAS
+    https://en.wikipedia.org/wiki/Actor_model

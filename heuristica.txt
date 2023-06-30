@@ -1,0 +1,7 @@
+Heurística
+é um procedimento mental simples que ajuda a encontrar respostas adequadas,
+embora várias vezes imperfeitas, para perguntas difíceis.
+A palavra tem a mesma raiz que eureka.
+
+Em computação,
+método de investigação baseado na aproximação progressiva de um dado problema.

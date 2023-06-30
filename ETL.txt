@@ -1,0 +1,5 @@
+ETL
+Extract, Transform, Load
+Extração, transformação e carregamento
+
+É o processo de tratamento e normalização de dados.

@@ -1,0 +1,8 @@
+Boilerplate
+template inicial
+um molde, para construir o código
+tudo mastigado
+
+
+# REFERÊNCIAS
+# [O que é Código Boilerplate](https://youtube.com/watch?v=R5VGQQQ6RtA)

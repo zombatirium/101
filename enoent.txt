@@ -1,0 +1,11 @@
+enoent,
+e no ent
+Error NO ENTry
+siginifica algo como:
+não há entrada para isso que se tenta acessar
+
+É abreviado porque os compiladores C 
+no início dos tempos 
+não suportavam mais de 8 caracteres em símbolos. 
+
+É simplesmente “Nenhuma entrada de diretório”.

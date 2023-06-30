@@ -1,0 +1,4 @@
+First-Class Citizen
+Cidadães de Primeira Classe
+são funções que são capazes de se comportar 
+como qualquer outro tipo de objeto. 

@@ -1,0 +1,39 @@
+function mdc_recursivo(a, b)::Int8
+  if b == 0
+    return a
+  end
+  mdc_recursivo(b, a%b)
+  
+end
+
+
+function mdc_dinamico(a, b)::Int8
+  if a ≤ b
+    a, b = b, a
+  end
+  
+  resto = a % b
+  
+  while resto ≠ 0
+    a = b
+    b = resto
+    resto = a % b
+  end
+  b
+end
+
+
+function main()::Nothing
+  a::Int8 = 10
+  b::Int8 = 15
+  println("$(mdc_recursivo(a, b))")
+  println("$(mdc_dinamico(a, b))")
+end
+
+main()
+
+# REFERÊNCIAS
+# https://www.youtube.com/watch?v=ZFjyW6qo7zQ
+# https://www.geeksforgeeks.org/euclidean-algorithms-basic-and-extended/
+# https://stackoverflow.com/questions/21608593/euclidean-algorithm-gcd-in-python
+# https://pt.wikipedia.org/wiki/Algoritmo_de_Euclides

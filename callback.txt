@@ -1,0 +1,17 @@
+Callback "chamada de retorno",
+é uma rotina que é como parâmetro
+para outro método
+
+Callback faz parte do desenvolvimento de softwares. 
+
+Normalmente, 
+ele age de forma assíncrona, ou seja, 
+não é executado imediatamente. 
+
+A aplicação continuará rodando enquanto espera o momento certo da sua execução.
+
+# REFERÊNCIAS
+[Callback](https://pt.wikipedia.org/wiki/Callback)
+[O que é callback](https://pt.stackoverflow.com/questions/27177/o-que-é-callback#27182)
+[Método de Callbak o que é](https://www.hostgator.com.br/blog/metodo-de-callback-o-que-e/)
+[Callback em linguagem C](https://www.youtube.com/watch?v=5XP1qC1Enp4)

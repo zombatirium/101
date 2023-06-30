@@ -1,0 +1,19 @@
+APIs REST são as APIs 
+mais usadas e populares 
+para conectar infraestruturas 
+baseadas em microsserviços, 
+seja um sistema interno ou 
+que exponha seus recursos para o resto do mundo.
+
+Quando uma API REST é disponibilizada publicamente 
+como um serviço da web, 
+cada componente fornecido pelo serviço da web 
+é apresentado aos clientes como um recurso. 
+
+Os clientes podem acessar esses recursos 
+por meio de uma interface comum 
+que aceita diferentes comandos HTTP 
+como GET, POST, DELETE e PUT.
+
+# REFERÊNCIAS
+https://vertigo.com.br/grpc-ou-rest-qual-utilizar/

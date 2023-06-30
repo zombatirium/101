@@ -1,0 +1,9 @@
+O broker 
+é uma entidade que recebe mensagens de publishers 
+– ou seja, clientes que produzem mensagens – 
+e encaminha mensagens a consumers, 
+que são clientes que recebem (consomem) mensagens.
+
+
+# REFERÊNCIAS
+https://www.embarcados.com.br/amqp-protocolo-de-comunicacao-para-iot/

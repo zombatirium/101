@@ -1,0 +1,20 @@
+Generator,
+Gerador,
+é um procedimento especial 
+que pode ser usado para controlar iteradores de loops. 
+
+Um gerador é muito similar para funções que retornam:
+arrays (ou vetores), 
+geradores podem ter parâmetros, 
+que também podem ser chamados e 
+geram uma sequência de valores. 
+
+Entretanto, em vez de construir uma sequência 
+que contenha todos os valores e 
+os retornam de uma só vez, 
+um gerador utiliza a palavra-chave yield 
+para retornar os valores um de cada vez, 
+que utiliza menos memória e 
+permite o processamento de poucos valores rapidamente. 
+Um gerador é uma função, 
+mas comporta-se como um iterador.

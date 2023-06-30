@@ -1,0 +1,75 @@
+Operador de desreferência (*),
+usado quando se deseja acessar os dados/valores na memória 
+para os quais o ponteiro aponta. 
+No caso, conteúdo do endereço com aquele índice numérico.
+Então, você desreferencia o ponteiro.
+
+Usados em linguagens da família C
+
+EX:
+  Desreferenciando o ponteiro
+  ```
+    const char* p = "abc";
+
+    assert(*p == 'a');   // O primeiro caractere no endereço p será 'a'
+    assert(p[1] == 'b'); // p[1] na verdade, desreferencia um ponteiro criado adicionando
+                         // p e 1 vezes o tamanho das coisas para as quais p aponta:
+                         // Neste caso, eles são caracteres que têm 1 byte em C ...
+    assert(*(p + 1) == 'b');  // Outra notação para p [1]
+  ```
+  Incrementando e dereferenciando o ponteiro
+  ```
+    ++p;  // Incremente p, então, agora p está 0x1001
+    assert(*p == 'b');  // p == 0x1001 que é onde o 'b' está
+  ```
+  Desreferencia e acessa um membro de dados da estrutura
+  ```
+    typedef struct X { int i_; double d_; } X;
+    X x;
+    X* p = &x;
+    p->d_ = 3.14159;  // Desreferencia e acessa: x.d_
+    (*p).d_ *= -1;    // Outra anotação equivalente para o acesso: x.d_
+  ```
+  Tipos de dados multibyte
+  ```
+    double vetor[] = { 10.3, 13.4, 11.2, 19.4 };
+    double* p = vetor;
+    assert(p[0] == 10.3);  // Sabe olhar para todos os bytes no primeiro valor duplo 
+    assert(p[1] == 13.4);  // Na verdade, olha os bytes do endereço p + 1 * sizeof(double)
+                           // (sizeof(double) quase sempre tem oito bytes)
+    ++p;                   // Avança p por sizeof(double)
+    assert(*p == 13.4);    // O duplo na memória, começando no endereço p, tem valor 13,4
+    *(p + 2) = 29.8;       // Altere a posição 3 (vetor[3]), de 19.4 para 29.8
+                           // Observe ++p e + 2 aqui => vetor[3]
+  ```
+  Indicadores para memória alocada dinamicamente
+  ```
+    int* p = (int*)malloc(sizeof(int)); // Pegue um pouco de memória em algum lugar ...
+    *p = 10;            // Remova a referência do ponteiro para a memória e escreva um valor no endereço apontado por p
+    fn(*p);             // Chama uma função, passando o valor no endereço p
+    (*p) += 3;          // Altere o valor, adicionando 3 a ele
+    free(p);            // Libere a memória de volta para a biblioteca de alocação de heap
+  ```
+  Libere a memória de volta para a biblioteca de alocação de heap
+    Frequentemente, 
+    um ponteiro pode ser a única indicação 
+    de onde alguns dados ou buffer existem na memória. 
+    Se o uso contínuo desses dados/buffer for necessário, 
+    ou a capacidade de chamar "free()"
+    ou "delete" evitar vazamento de memória, 
+    o programador deve operar em uma cópia do ponteiro ...
+  ```
+    const char* p = asprintf("name: %s", name);  // Comum, mas não padrão printf-on-heap
+
+    // Substitua os caracteres não imprimíveis por sublinhados ....
+    for (const char* q = p; *q; ++q)
+        if (!isprint(*q))
+            *q = '_';
+
+    printf("%s\n", p); // Only q was modified
+    free(p);
+  ```
+
+REFERÊNCIAS:
+  https://stackoverflow.com/questions/4955198/what-does-dereferencing-a-pointer-mean
+

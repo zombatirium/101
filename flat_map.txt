@@ -1,0 +1,26 @@
+flat map
+mapa plano 
+é uma operação 
+que obtém uma lista de elementos 
+que possuem tipo "A" e
+uma função "f"
+de tipo "A -> [B]"
+
+A função "f"
+é então aplicada 
+a cada elemento da lista inicial 
+e todos os resultados são concatenados. 
+
+EX:
+  flat_map :: (t -> [a]) -> [t] -> [a]
+
+  id = lambda x: x
+  flat_map(id, [[1,2], [3,4]]) == [1, 2, 3, 4]
+
+  s = lambda x: split(x, ";")
+  flat_map(s, ["a,b", "c,d"]) == ["a", "b", "c", "d"]
+
+
+# REFERÊNCIAS
+[Flat Map in Python](https://dev.to/turbaszek/flat-map-in-python-3g98)
+[Gist flat map in Python](https://gist.github.com/turbaszek/9edfa4f19a2b490eeddc8f78542de98c)

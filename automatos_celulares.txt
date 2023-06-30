@@ -1,0 +1,228 @@
+Os autómatos celulares elementares
+são os modelos de evolução temporal mais simples
+com capacidade para exibir comportamento complicado,
+chamado comportamento emergente.
+
+Por isso, 
+é muito fácil de aceitar a importância do seu estudo, 
+quando se procura entender a complexidade 
+que vemos surgir de uma forma transversal 
+em todas as Ciências Naturais e Humanas. 
+
+Inicialmente propostos na década de 40,
+por John Von Neumann, 
+tinham como objetivos principais:
+
+    Representar matematicamente a evolução natural dos sistemas complexos
+    Desenvolver máquinas de auto-replicação, através de um conjunto de regras matemáticas objetivas
+    Estudar a auto-organização em sistemas complexos
+
+A classificação dos autómatos celulares elementares, 
+apresentada por Stephen Wolfram, 
+na década de 1980, 
+foi construída a partir da simulação computacional de sistemas finitos
+com condições de fronteira periódicas. 
+
+Neste trabalho são consideradas outras escolhas para condições de fronteira, 
+por reflexão e fixas, 
+sendo estudadas as equivalências dinâmicas dos autómatos celulares finitos 
+nesse contexto mais alargado. 
+
+A partir desse estudo, 
+mostramos que, 
+com pouquíssimas exceções, 
+a distribuição dos autómatos celulares elementares 
+pelas quatro classes propostas por Wolfram 
+vale igualmente quando se consideram condições de fronteira 
+por reflexão e fixas. 
+
+Ainda dentro desse estado, faz-se importante pontuar algumas regras:
+
+    Homogeneidade
+        as regras são iguais para todas as células
+    Estados discretos
+        cada célula pode estar em um dos finitos estados
+    Interações locais
+        o estado de uma célula depende apenas das células mais próximas (Vizinhas)
+    Processo dinâmico
+        a cada instante de tempo as células podem sofrer uma atualização de estado
+
+Ou ainda:
+    1. Máquina Abstrata
+        Se comporta como uma máquina física, baseada em regras abstratas, mas não é uma máquina física
+    2. Espaço Celular
+        Espaço divido em pedaços
+    3. Regras Baseadas na Vizinhança
+        Regras são estruturadas conforme o contato com os Vizinhos
+    4. Tempo Discreto
+        Tempo passa em saltos, como os bits eviados conforme o clock do processador
+
+Mais interessante porém, 
+foram os resultados obtidos no estudo de duas dessas exceções, 
+onde se encontrou um tipo de comportamento para autómatos celulares elementares 
+de caraterísticas não antecipadas por Wolfram na sua classificação.
+
+Então, pode-se dizer que um Autómato Celular é
+uma 5-tupla (quintupla) de elementos, onde:
+
+    A = (R, S, S0, V, F)
+
+    R  = grade de células (pode ser 1 dimensão (vetor -> reticulado unidimensional: 0 ... n-1), 2 dimensões, 3 dimensões, ...)
+    S  = conjunto de estados de uma célula
+    S0 = estado inicial do sistema
+    V  = conjunto vizinhança (define quem são os Vizinhos de cada células)
+    F  = função de transição (regras que governam a evolução dos sistema através do tempo)
+
+Autómato Celular Elementar
+    reticulado unidimensional -> pode ser representado por um vetor
+    conjunto de estados -> S = {0, 1}
+    conjunto vizinhança -> S = {0, 1}
+
+    4 classes dos Autômatos Celulares Elementares
+        1. Estado Homogêneo (ao final, vivo ou morto)
+            Todas as células chegarão num mesmo estado após um número finito de estados
+        2. Estável Simples (tempo 1: vivo, tempo 2: morto, tempo 3: vivo, tempo 4: morto, ... etc)
+            As células não possuirão todas o mesmo estado, mas eles se repetem com a evolução temporal
+        3. Padrão Irregular
+            Não possui padrão reconhecivel
+        4. Estrutura Complexa (Regra 110)
+            Estruturas complexas que evoluem imprevisivelmente
+
+    # EX Autômato Celular Elementar: Regra 50
+        1ª Geração                    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        2ª Geração                    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │     │  │  C  │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        2ª Geração                    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │  C  │  │     │ │  C  │  │     │ │  C  │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+
+        Função de Transição (S = {0, 1} -> 0 vive, 1 morre | t = tempo discreto) em 2^3 = 8 - 1 = 0
+            | X em t(i-1) | |  X em t(i)  | | X em t(i+1) | | X em t+1(i+1) |
+            |      0      | |      0      | |      0      | |       0       |
+            |      0      | |      0      | |      1      | |       1       |
+            |      0      | |      1      | |      0      | |       0       |
+            |      0      | |      1      | |      1      | |       0       |
+            |      1      | |      0      | |      0      | |       1       |
+            |      1      | |      0      | |      1      | |       1       |
+            |      1      | |      1      | |      0      | |       0       |
+            |      1      | |      1      | |      1      | |       0       |
+
+        Regra 50: 00110010 => 50
+
+        OBS: a tabela têm 8 linhas, pois são usados 3 bits para representar a vizinhança
+
+# EX Jogo da Vida (John Conway)
+    1. Máquina Abstrata
+        Jogo da Vida
+    2. Espaço Celular
+        Autómato celular estruturado em regras baseadas na vizinhança
+        onde o espaço celular possui células vivas e mortas
+        Cada posição do espaço, possui um estado: vivo ou morto
+ 
+        1ª Geração                    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │     │  │  C  │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+
+    3. Regras (Função de Transição) Baseadas na Vizinhança
+        A. Menos 2 Vizinhos vivos - Morre
+        B. 2 ou 3 Vizinhos vivos  - Vive
+        C. Mais 3 Vizinhos vivos  - Morre
+        D. 3 Vizinhos vivos       - Nasce
+
+    4. Tempo Discreto
+
+        2ª Geração                    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+
+        3ª Geração                    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+
+        4ª Geração   Padrão Estável    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+
+        5ª Geração   Padrão Estável    C = célula
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │  C  │ │  C  │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+        ┌─────┐  ┌─────┐ ┌─────┐  ┌─────┐ ┌─────┐
+        │     │  │     │ │     │  │     │ │     │
+        └─────┘  └─────┘ └─────┘  └─────┘ └─────┘
+
+# REFERÊNCIAS
+[](https://pt.stackoverflow.com/questions/101683/como-a-regra-110-pode-ser-uma-boa-forma-de-saber-se-uma-linguagem-é-turing-compl)
+[](https://pt.wikipedia.org/wiki/Autómato_celular)
+[](https://stringfixer.com/pt/Rule_110)
+[Autômatos Celulares e Jogo da Vida](https://youtube.com/watch?=yLiwUjnRJBE)
+[Autômatos celulares](https://youtube.com/watch?=mDQyDfSGakQ)
+[Autômatos celulares elementares em Python](https://youtube.com/watch?=QqSNTy_df-Y)
+

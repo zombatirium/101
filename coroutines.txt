@@ -1,0 +1,28 @@
+Coroutines,
+Corrotinas,
+são componentes de programas de computador 
+que generalizam sub-rotinas para multitarefa não preemptiva, 
+permitindo que a execução seja suspensa e reiniciada
+
+São rotinas cooperativas (funções, métodos, procedimentos) 
+que concordam em parar sua execução 
+permitindo que outra rotina possa ser executada 
+naquele momento 
+esperando que essa rotina secundária devolva a execução 
+em algum momento, 
+portanto uma coopera com a outra.
+
+Isso permite a execução em partes. 
+Um dos grandes benefícios,
+é manter algum estado entre os momentos de execução, 
+então sua principal função é facilitar a execução segmentada, 
+possivelmente criando alguma abstração na execução.
+
+O principal mecanismo em linguagens para alcançar isto:
+é o yield. 
+Também pode usar uma máquina de estados manualmente ou 
+por biblioteca.
+
+
+REFERÊNCIAS:
+  https://pt.stackoverflow.com/questions/241437/o-que-s%C3%A3o-coroutines

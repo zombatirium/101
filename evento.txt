@@ -1,0 +1,35 @@
+um evento 
+é o resultado de uma ação. 
+A ocorrência de um evento pode provocar uma reação, 
+que seria uma ação a ser tomada.
+
+Os eventos do computador 
+podem ser gerados ou 
+disparados pelo sistema, 
+pelo usuário ou 
+de outras maneiras. 
+
+Normalmente, 
+os eventos são tratados 
+em sincronia com o fluxo do programa; 
+ou seja, 
+o software pode ter um ou 
+mais locais dedicados onde os eventos são tratados, 
+freqüentemente 
+um loop de eventos. 
+
+Uma fonte de eventos inclui o usuário, 
+que pode interagir com o software 
+por meio dos periféricos do computador 
+- por exemplo, digitando no teclado. 
+Outra fonte é um dispositivo de hardware, como um cronômetro .
+
+O software também pode acionar seu próprio conjunto de eventos 
+no loop de eventos, 
+por exemplo, 
+para comunicar a conclusão de uma tarefa. 
+O software que muda seu comportamento 
+em resposta a eventos 
+é considerado orientado a eventos, 
+geralmente com o objetivo de ser interativo 
+

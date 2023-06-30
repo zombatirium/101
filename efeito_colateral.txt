@@ -1,0 +1,33 @@
+Na orientação a objetos, 
+efeito colateral é um efeito indesejado 
+que ocorre em objetos 
+quando seu estado é modificado. 
+
+Ou ainda
+tudo que o programa faz ou depende
+que é externo a ele de alguma forma
+e causa um efeito indesejado
+
+EX:
+  requisições via HTTP
+  ou qualquer outro tipo de requisições via REDE
+  escrita/leitura do sistema de arquivos
+  imprimir/ler input do console
+
+Pode ocorrer em diferentes situações, 
+geralmente a causa é uma manutenção confusa do estado do objeto, 
+onde a chamada de um método acaba influenciando no comportamento de outro
+
+Se alterar um estado externo à uma função 
+está gerando o efeito colateral. 
+E não importa como vem esse estado externo, 
+pode ser por parâmetro normal, 
+pode ser por parâmetro implícito (normalmente o this), 
+ou pode ser porque este estado está visível globalmente, 
+incluindo dado que vem de fora da aplicação. 
+OOP praticamente força você fazer isso.
+
+https://www.take.net/blog/devs/programacao-funcional-javascript/#:~:text=Um%20efeito%20colateral%20%C3%A9%20qualquer,imprevisibilidade%20e%20complexidade%20no%20racioc%C3%ADnio.
+
+https://pt.stackoverflow.com/questions/330341/o-que-s%C3%A3o-efeitos-colaterais
+[Linguagem Funcional - O que é e como usamos no ambiente de dados no Nubank _ Building Nu Meetups](https://www.youtube.com/watch?v=29xGlv_aqFM)

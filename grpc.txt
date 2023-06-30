@@ -1,0 +1,84 @@
+RPC (Remote Procedure Call),
+Ou: chamada de procedimento remoto
+é a definição de um protocolo 
+para executar procedimentos 
+em outros computadores 
+que se encontram em rede
+
+Não cabe ao RPC especificar 
+como a mensagem é enviada 
+de um processo para o outro.
+
+gRPC,
+framework Google
+que implementa o RPC
+
+
+OBS:
+  => serialização/deserialização 
+     -> faz um uso menos intensivo da CPU 
+        pelo fato das mensagens estarem em formato binário, 
+        mais próximo de como o computador representa os dados.
+
+
+# Principais vantagens
+  => Desenvolvimento de API Contract-first, 
+     com Protocol Buffer por padrão;
+
+  => Disponível em mais de 10 linguagens de programação;
+
+  => Suporte a chamadas streaming 
+     do cliente para o servidor, 
+     do servidor para cliente 
+     e bidirecional 
+
+  => Reduz a utilização da rede, 
+     latência, 
+     pois os dados são trafegados em binário (?);
+
+  => Utiliza o protocolo HTTP2
+    -> Fluxo multiplexados
+    -> Compressão do cabeçalho
+    -> protocolo binário
+    -> HTTP2 X HTTP1.1
+      -> https://imagekit.io/demo/http2-vs-http1
+
+
+# QUANDO USAR
+  => Conexões de microsserviços
+    -> a comunicação de baixa latência e
+       alta velocidade do gRPC 
+       o torna particularmente útil 
+       para conectar arquiteturas 
+       que consistem em microsserviços leves 
+       em que a eficiência da transmissão de mensagens 
+       é fundamental.
+
+  => Sistemas multilinguagens
+    -> com seu suporte de geração de código nativo 
+       para uma ampla gama de linguagens de desenvolvimento, 
+       o gRPC é excelente para gerenciar conexões 
+       em um ambiente poliglota. 
+
+  => Streaming em tempo real
+    -> a capacidade do gRPC de gerenciar o streaming bidirecional 
+       permite que seu sistema envie e receba mensagens 
+       em tempo real 
+       sem esperar pela resposta unária do cliente.
+
+  => Redes de baixa largura de banda e baixa potência
+    -> o uso de mensagens serializadas 
+       Protobuf 
+       pelo gRPC 
+       oferece mensagens leves, 
+       maior eficiência e 
+       velocidade 
+       para redes de baixa potência e 
+       largura de banda restrita.
+
+
+# REFERÊNCIAS
+https://grpc.io/
+https://medium.com/mobicareofficial/iniciando-com-grpc-c48d81774266
+https://vertigo.com.br/grpc-ou-rest-qual-utilizar/
+https://medium.com/@EmperorRXF/evaluating-performance-of-rest-vs-grpc-1b8bdf0b22da

@@ -1,0 +1,77 @@
+Auto-scaling
+escalonamento automático,
+é um método usado na computação em nuvem
+que ajusta dinamicamente a quantidade de recursos computacionais
+em um farm de servidores
+- normalmente medido pelo número de servidores ativos -
+automaticamente com base na carga no farm.
+
+Por exemplo, o número de servidores executados
+por trás de um aplicativo da Web
+pode ser aumentado ou diminuído automaticamente
+com base no número de usuários ativos no site.
+
+Como essas métricas podem mudar drasticamente ao longo do dia,
+e os servidores são um recurso limitado
+que custa dinheiro para ser executado mesmo quando ocioso,
+geralmente há um incentivo para executar servidores
+"apenas o suficiente" para suportar a carga atual e
+ainda poder suportar picos repentinos e grandes de atividade.
+
+O escalonamento automático é útil para essas necessidades,
+pois pode reduzir o número de servidores ativos
+quando a atividade é baixa e iniciar novos servidores quando a atividade é alta.
+
+O escalonamento automático está intimamente relacionado a,balanceamento de carga .
+
+
+VANTAGENS
+
+O escalonamento automático oferece as seguintes vantagens:
+
+* Para empresas que executam sua própria infraestrutura de servidor da Web,
+  o escalonamento automático normalmente significa permitir
+  que alguns servidores entrem em suspensão
+  durante períodos de baixa carga,
+  economizando custos de eletricidade
+  (assim como custos de água se a água estiver sendo usada para resfriar as máquinas).
+
+* Para empresas que usam infraestrutura hospedada na nuvem,
+  o escalonamento automático pode significar contas mais baixas,
+  porque a maioria dos provedores de nuvem cobra
+  com base no uso total e não na capacidade máxima.
+
+* Mesmo para empresas que não podem reduzir
+  a capacidade total de computação que executam ou pagam a qualquer momento,
+  o escalonamento automático pode ajudar,
+  permitindo que a empresa execute cargas de trabalho
+  menos sensíveis ao tempo em máquinas
+  que são liberadas pelo escalonamento automático
+  durante períodos de baixo tráfego.
+
+* As soluções de escalonamento automático,
+  como a oferecida pela Amazon Web Services,
+  também podem substituir instâncias não íntegras e, portanto,
+  proteger um pouco contra falhas de hardware, rede e aplicativos.
+
+* O escalonamento automático pode oferecer maior tempo de atividade
+  e mais disponibilidade nos casos
+  em que as cargas de trabalho de produção são variáveis e imprevisíveis.
+
+
+O escalonamento automático difere de ter um ciclo fixo diário,
+semanal ou anual de uso do servidor,
+pois responde aos padrões de uso reais e, portanto,
+reduz a desvantagem potencial de ter poucos
+ou muitos servidores para a carga de tráfego.
+
+Por exemplo, se o tráfego é geralmente menor à meia-noite,
+uma solução de dimensionamento estático
+pode agendar alguns servidores para dormir à noite,
+mas isso pode resultar em tempo de inatividade
+em uma noite em que as pessoas usam mais a Internet
+(por exemplo, devido a um vírus evento noticioso).
+
+O escalonamento automático,
+por outro lado,
+pode lidar melhor com picos de tráfego inesperados.

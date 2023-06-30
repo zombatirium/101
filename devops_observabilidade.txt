@@ -1,0 +1,60 @@
+Observabilidade 
+é uma medida 
+de quão bem os estados internos de um sistema 
+podem ser inferidos 
+a partir do conhecimento de suas saídas externas. 
+
+Na teoria de controle, 
+a observabilidade e a controlabilidade de um sistema linear são duais matemáticos.
+
+O conceito de observabilidade 
+foi introduzido pelo engenheiro húngaro-americano Rudolf E. Kálmán 
+para sistemas dinâmicos lineares. 
+
+Um sistema dinâmico projetado 
+para estimar o estado de um sistema 
+a partir de medições das saídas 
+é chamado de observador de estado ou 
+simplesmente um observador desse sistema.
+
+
+# PILARES (Vá para a referência: Awesome Observability)
+  Metrics - Métricas
+    SigNoz    -> https://github.com/SigNoz/signoz
+    Sensu Go  -> https://github.com/sensu/sensu-go (terminal)
+
+  Logs    - registro de eventos relevantes em OS
+    fluentd   -> https://github.com/fluent/fluentd
+    elk stack -> https://www.elastic.co/pt/what-is/elk-stack
+    loggy     -> loggly.com
+    Grafana   -> https://github.com/grafana/
+
+  Tracing - Rastreamento
+    Jaeger    -> https://github.com/jaegertracing/jaeger
+    zipkin    -> https://github.com/openzipkin/zipkin
+
+
+# Observabilidade x Monitoramento
+  O monitoramento 
+  requer que você saiba 
+  o que é importante para você 
+  antes de saber que se importa com isso. 
+
+  A capacidade de observação, 
+  que vem da teoria de controle, 
+  permite que você entenda todo o seu sistema 
+  e como ele se encaixa 
+  e, em seguida, 
+  use essa informação para descobrir 
+  o que especificamente você deve se preocupar 
+  quando for mais importante.
+
+
+REFERÊNCIAS
+[Awesome Observability](https://github.com/adriannovegil/awesome-observability)
+[Linux Performance Observability Tools](https://medium.com/@chrishantha/linux-performance-observability-tools-19ae2328f87f)
+DevOPS Architecture - Google Cloud](https://cloud.google.com/architecture/devops/devops-measurement-monitoring-and-observability?hl=pt-br)
+[Splunk](https://www.splunk.com/en_us/data-insider/what-is-observability.html#:~:text=Observability%20is%20the%20ability%20to,from%20outputs%2C%20namely%20sensor%20data.)
+[Observability Tool](https://www.squadcast.com/blog/top-observability-tools-for-devops-engineers-and-sres)
+[Lightstep - Observability](https://lightstep.com/observability/#telemetry-data-logs-metrics-and-traces)
+[Introdução a OpenTracing e Jaeger](https://www.youtube.com/watch?v=ARaMOdZ54mo)

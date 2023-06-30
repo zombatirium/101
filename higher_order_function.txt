@@ -1,0 +1,4 @@
+Função de Ordem Superior,
+uma função que executa pelo menos um dos seguintes procedimentos:
+assume uma ou mais funções como argumentos, 
+retorna uma função como resultado.

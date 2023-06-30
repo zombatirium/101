@@ -1,0 +1,4 @@
+Glue Code (código cola),
+é um código que não contribui para nenhuma funcionalidade do programa, 
+serve somente para unir diferentes partes de um código, 
+que de outra forma não seriam compatíveis.

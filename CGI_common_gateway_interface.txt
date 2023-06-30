@@ -1,0 +1,15 @@
+CGI 
+é uma especificação de interface 
+para que servidores web 
+possam executar programas 
+na linha de comandos em um servidor 
+que gera páginas web dinâmicas. 
+Estes programas são chamados de:
+scripts CGI ou 
+simplesmente CGIs.
+Atualmente tecnologias como:
+ASP.NET, 
+PHP, 
+Python e 
+Ruby 
+utilizam a especificação.
