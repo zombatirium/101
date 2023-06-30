@@ -1,0 +1,6 @@
+Uma função wrapper é uma sub-rotina 
+em uma biblioteca de software ou um programa de computador 
+cujo objetivo principal é 
+chamar uma segunda sub-rotina ou 
+uma chamada de sistema 
+com pouca ou nenhuma computação adicional

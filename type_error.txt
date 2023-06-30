@@ -1,0 +1,42 @@
+TypeError:
+o objeto 'NoneType'
+não é uma exceção subscritivel
+
+ocorre se você atribuir
+o resultado de métodos internos
+    append()
+    sort()
+    reverse()
+a uma variável
+
+EX:
+    numbers = [1, 2, 3]
+    variable = numbers.sort()
+    print(f"Isso \"{variable}\" dá None")
+    print(variable[0]) # Dá erro
+
+Quando se atribui esses métodos a uma variável
+o método retorna o valor None
+
+
+objetos subscrevíveis
+possuem o método:
+    __getitem__
+objetos cujos itens
+podem ser recuperados
+usando indexação
+
+EX:
+    listas
+    dicionários
+    tuplas
+
+----------------------------------------------------------------
+
+CORREÇÂO
+
+EX:
+    numbers = [1, 2, 3]
+    numbers.sort()
+    variable = numbers[2]
+    print(variable) # Não dá erro

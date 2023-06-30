@@ -1,0 +1,64 @@
+Transdutores 
+são transformações algorítmicas composíveis. 
+Eles são independentes do contexto 
+de suas fontes de entrada e saída 
+especificam apenas a essência da transformação 
+em termos de um elemento individual.
+
+
+Os transdutores 
+são receitas do que fazer 
+com uma sequência de dados 
+sem saber qual é a sequência subjacente (como fazer). 
+Pode ser qualquer canal seq, assíncrono ou talvez observável.
+
+Eles são composíveis e polimórficos.
+
+A vantagem é que 
+você não precisa implementar 
+todos os combinadores padrão 
+sempre que uma nova fonte de dados é adicionada. 
+De novo e de novo. 
+Como resultado, 
+você, 
+como usuário, 
+pode reutilizar essas receitas em diferentes fontes de dados.
+
+
+EX Clojure:
+  
+      # Chamada aninhada
+      (reduce + (filter odd? (map #(+ 2 %) (range 0 10))))
+
+
+      # Composição Funcional
+      (def xform
+      (comp
+        (partial filter odd?)
+        (partial map #(+ 2 %))))
+      (reduce + (xform (range 0 10)))
+
+
+      # Macro Threading
+      (defn xform [xs]
+      (->> xs
+           (map #(+ 2 %))
+           (filter odd?)))
+      (reduce + (xform (range 0 10)))
+
+      # Com transdutores
+      (def xform
+      (comp
+        (map #(+ 2 %))
+        (filter odd?)))
+      (transduce xform + (range 0 10))
+
+      (chan 1 xform)
+
+      OBS: 
+          você nunca chama os transdutores diretamente, 
+          você os passa para outra função. 
+          Os transdutores sabem o que fazer, 
+          a função que obtém o transdutor sabe como. 
+          A ordem dos combinadores é como você escreve 
+          com macro de threading (ordem natural)

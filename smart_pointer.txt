@@ -1,0 +1,11 @@
+Ponteiros Inteligentes,
+tipo de dado abstrato que simula um apontador. 
+
+Ele fornece mais funcionalidades que ponteiros, 
+como coletor de lixo ou verificação de limites do tipo de dado, 
+para adicionar segurança e reduzir erros de programação, 
+ainda que maximizando a eficiência.
+
+São usados para ajudar a garantir que os programas estejam livres
+de vazamentos de memória e de recursos 
+e sejam seguros para exceções.

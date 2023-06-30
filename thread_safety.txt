@@ -1,0 +1,13 @@
+Thread-safe 
+é o código que funcionará 
+mesmo se muitos Threads 
+o estiverem executando simultaneamente
+num mesmo processo.
+
+
+# REFERÊNCIAS
+https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdco5/index.html
+https://docs.oracle.com/cd/E19455-01/806-5257/6je9h033c/index.html
+https://stackoverflow.com/questions/261683/what-is-the-meaning-of-the-term-thread-safe
+https://www.codeproject.com/Articles/352675/Moq-Thread-Safety-and-More
+https://www.quora.com/C-What-is-the-difference-between-thread-safe-and-atomic

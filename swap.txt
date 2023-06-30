@@ -1,0 +1,10 @@
+SWAP
+forma de de alocar memória anônima no disco,
+que diferente de memória no disco.
+
+é uma área dedicada, por conta de um mecanismo onde são realizadas essas trocas
+
+dependendo da situação de performance ou contenção
+é preferível tirar memória anônima ou
+memória associada a arquivo
+da memória RAM para o disco

@@ -1,0 +1,11 @@
+/dev/sda 
+É o primeiro disco detectado do tipo IDE/SATA/SCSI.
+Neste caso, emulado (completo virtualizado) pelo hipervisor.
+
+/dev/vda 
+É o primeiro driver de disco paravirtualizado detectado.
+É mais rápido do que dispositivos sdX emulados se ambos são referidos no mesmo disco,
+porque há menos sobrecarga em sua operação em comparação com uma unidade emulada.
+
+# REFERÊNCIAS
+[Full Virtualization vs. Paravirtualization](https://serverfault.com/questions/803388/what-is-the-difference-between-dev-vda-and-dev-sda)

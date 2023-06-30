@@ -1,0 +1,14 @@
+Tokens 
+  elemento sintático que o parser reconhece
+  elemento sintático mais elementar
+
+tokenize(): separe todos os elementos em tokens
+lispstr(): operação contrário a do parser
+evaluet(): avalia todos os argumentos antes
+
+chamada de função, 
+os argumentos são avaliados 
+antes da função ser chamada
+por isso, 
+if não é uma função, 
+pois não da para criar essa proteção

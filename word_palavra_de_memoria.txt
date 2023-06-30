@@ -1,0 +1,102 @@
+Palavra 
+é a unidade natural de dados 
+usada por um projeto de processador específico.
+
+Uma palavra é um pedaço de dados de tamanho fixo 
+manipulados como uma unidade 
+pelo conjunto de instruções ou 
+o hardware do processador. 
+
+EX: 
+               32 bits
+┌───────────────────────────────────┐
+│   1    │   1    │   1    │   1    │         
+│  byte  │  byte  │  byte  │  byte  │
+└───────────────────────────────────┘
+0       7 8     15 16    23 24     31
+
+└────────┘  == 1 byte
+   byte
+
+└─────────────────┘ == 2 bytes
+       word
+
+└───────────────────────────────────┘ == 4 bytes
+            double word
+
+REFERÊNCIA:
+  https://www.youtube.com/watch?v=iojS7LHm7jM
+
+O número de bits em uma palavra
+(o tamanho da palavra, 
+largura da palavra ou 
+comprimento da palavra) 
+é uma característica importante de qualquer projeto de processador específico ou 
+arquitetura de computador.
+
+O tamanho de uma palavra 
+se reflete em muitos aspectos da estrutura
+e operação de um computador;
+a maioria dos registradores em um processador 
+geralmente tem o tamanho de uma palavra 
+e o maior pedaço de dados 
+que pode ser transferido de e para a memória de trabalho 
+em uma única operação 
+é uma palavra em muitas (não em todas) arquiteturas. 
+
+O maior tamanho de endereço possível, 
+usado para designar um local na memória, 
+é normalmente uma palavra de hardware 
+(aqui, 
+"palavra de hardware" 
+significa a palavra natural 
+de tamanho completo do processador, 
+em oposição a qualquer outra definição usada).
+
+Documentação para computadores com tamanho de palavra fixo, 
+tamanhos de memória comumente declarados em palavras, 
+em vez de bytes ou caracteres. 
+
+Usam termos como 
+kilowords (KW) significando 1.024 palavras (2^10) e 
+megawords (MW) significando 1.048.576 palavras (2^20)
+eram normalmente usados. 
+
+Com a padronização em bytes de 8 bits e 
+capacidade de endereçamento de byte, 
+declarar os tamanhos de memória em 
+bytes, 
+kilobytes e 
+megabytes 
+se tornou a norma.
+
+A introdução do ASCII 
+levou à mudança 
+para sistemas com comprimentos de palavra 
+múltiplos de 8 bits, 
+com máquinas de 16 bits 
+sendo populares na década de 1970 
+antes da mudança para processadores modernos 
+com 32 ou 64 bits. 
+
+Projetos para fins especiais, 
+como processadores de sinal digital, 
+podem ter qualquer comprimento de palavra de 4 a 80 bits.
+
+
+Word Addressing:
+  Na arquitetura do computador, 
+  o endereçamento de palavras significa 
+  que os endereços da memória em um computador 
+  identificam exclusivamente as palavras da memória. 
+
+  Geralmente, 
+  é usado em contraste com o endereçamento de bytes, 
+  em que os endereços identificam os bytes de maneira exclusiva. 
+
+  Quase todas as arquiteturas de computador modernas 
+  usam endereçamento de byte, 
+  e endereçamento de palavras 
+  tem, em grande parte, apenas interesse histórico. 
+
+  Um computador que usa endereçamento de palavras às vezes é chamado de máquina de palavras.

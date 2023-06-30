@@ -1,0 +1,11 @@
+Troubleshooting,
+Solução de Problemas
+é um diagrama 
+indicando os diversos possíveis problemas que um produto, 
+processo ou 
+sistema operacional 
+pode apresentar, 
+com suas causas 
+e como proceder diante de cada problema, 
+muitas vezes aplicado 
+na reparação de produtos ou processos falhados. 

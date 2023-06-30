@@ -1,0 +1,16 @@
+Task, tarefa.
+Na computação, 
+uma tarefa é 
+uma unidade de execução ou 
+uma unidade de trabalho. 
+O termo é ambíguo; 
+termos alternativamente precisos incluem 
+processo, 
+processo leve, 
+thread (para execução), 
+etapa, 
+solicitação ou 
+consulta (para trabalho).
+
+# REFERÊNCIAS
+https://en.wikipedia.org/wiki/Task_(computing)

@@ -1,0 +1,30 @@
+stateful,
+são aqueles que podem ser usados mais de uma vez, 
+como e-mails e 
+serviços bancários online. 
+Eles são executados com base no contexto das transações anteriores. 
+Dependendo do que aconteceu nelas, 
+isso pode afetar as transações atuais. 
+Por isso, 
+as aplicações stateful usam os mesmos servidores 
+sempre que processam uma solicitação do usuário.  
+
+Se uma transação stateful for interrompida, 
+você conseguirá retomá-la praticamente de onde parou 
+já que o contexto e o histórico são armazenados. 
+As aplicações stateful acompanham informações 
+como localização da janela, 
+preferências de configuração e 
+atividades recentes. 
+Pense em transações stateful como uma conversa periódica e 
+contínua com a mesma pessoa.
+
+A maioria das aplicações que usamos no dia a dia é stateful. 
+E, à medida que novos avanços tecnológicos surgem, 
+os microsserviços e 
+containers 
+facilitam a criação e implantação de aplicações na nuvem. 
+
+Oposto a stateless.txt
+
+https://www.redhat.com/pt-br/topics/cloud-native-apps/stateful-vs-stateless

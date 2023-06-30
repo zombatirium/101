@@ -1,0 +1,96 @@
+Na ciência da computação, 
+uma chamada de cauda (tail recursion)
+é uma chamada de sub-rotina 
+executada como a ação final de um procedimento. 
+Se o alvo de uma cauda é a mesma sub-rotina, 
+diz-se que a sub-rotina é recursiva da cauda, 
+que é um caso especial de recursão direta
+
+# EX:
+  sum(5) = 1 + 2 + 3 + 4 + 5 = 15
+
+  # SEM TAIL RECURSION
+    => JS
+      function recsum(x) {
+        if (x === 1) {
+            return x;
+        } else {
+            return x + recsum(x - 1);
+        }
+      }
+
+      recsum(5)
+      5 + recsum(4)
+      5 + (4 + recsum(3))
+      5 + (4 + (3 + recsum(2)))
+      5 + (4 + (3 + (2 + recsum(1))))
+      5 + (4 + (3 + (2 + 1)))
+      15
+
+    -> OBS: cada chamada recursiva 
+            deve ser concluída 
+            antes que o interpretador JavaScript 
+            comece a fazer o trabalho de calcular a soma.
+
+  # COM TAIL RECURSION 
+    => JS
+      function tailrecsum(x, running_total = 0) {
+        if (x === 0) {
+            return running_total;
+        } else {
+            return tailrecsum(x - 1, running_total + x);
+        }
+      }
+
+      tailrecsum(5, 0)
+      tailrecsum(4, 5)
+      tailrecsum(3, 9)
+      tailrecsum(2, 12)
+      tailrecsum(1, 14)
+      tailrecsum(0, 15)
+      15
+
+    -> OBS: No caso recursivo final, 
+            com cada avaliação da chamada recursiva, 
+            o running_total é atualizado
+
+
+  # RECURSION != TAIL RECURSION
+    => Recursion
+      -> você executa suas chamadas recursivas primeiro (recsum(x - 1) |> + x)
+         em seguida, 
+         pega o valor de retorno da chamada recursiva e calcula o resultado. 
+         Dessa forma, você não obtém o resultado do cálculo 
+         até que tenha retornado de cada chamada recursiva.
+
+    => Tail Recursion
+      -> você executa seus cálculos primeiro (x - 1, running_total + x |> tailrecsum() )
+         em seguida, 
+         executa a chamada recursiva, 
+         passando os resultados de sua etapa atual 
+         para a próxima etapa recursiva. 
+         Isso resulta na última instrução na forma de: 
+         (return (parâmetros de função recursiva)). 
+         Basicamente, o valor de retorno de qualquer passo recursivo dado 
+         é o mesmo que o valor de retorno da próxima chamada recursiva.
+         Simplesmente reutilize o quadro de pilha atual 
+         para a próxima etapa recursiva.
+
+
+    # OBS:
+      => Um ponto importante é que:
+         a recursão da cauda é essencialmente equivalente ao loop. 
+         Não é apenas uma questão de otimização do compilador, 
+         mas um fato fundamental sobre a expressividade. 
+         Isso vale para os dois lados, 
+         você pode pegar qualquer loop da forma:
+          
+            -> while(E) { S }; return Q // E && Q == expresion; S == sequence of statements
+          
+          e transformar numa sequência de tail recursion:
+            
+            -> f() = if E then { S; return f() } else { return Q }
+
+
+# REFERÊNCIA
+https://stackoverflow.com/questions/33923/what-is-tail-recursion#:~:text=Tail%20recursion%20refers%20to%20the,begins%20popping%20the%20call%20stack.

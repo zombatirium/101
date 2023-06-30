@@ -1,0 +1,8 @@
+Pedaço de um processo capaz de executar taferas 
+como se fosse um sub-sistema, sub-conjunto
+
+Espaço de endereço e múltiplas linhas de controle.
+
+Threads compatilham o mesmo espaço de endereçamento outra threads.
+
+Tarefas ao mesmo tempo

@@ -1,0 +1,4 @@
+Variável,
+posição nomeada de memória
+que é usada para guardar um valor 
+que pode ser modificado pelo programa

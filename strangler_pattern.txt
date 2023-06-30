@@ -1,0 +1,16 @@
+Strangler Pattern
+é uma forma de migrar um sistema legado 
+de forma incremental, 
+substituindo as funcionalidades existentes 
+por novos aplicativos e 
+serviços em uma abordagem em fases. 
+
+Após a substituição de toda a funcionalidade, 
+o novo sistema de aplicativo eventualmente substituirá 
+todos os recursos do sistema legado antigo. 
+
+O nome "padrão estrangulador" foi inspirado nas figueiras estranguladoras.
+
+# REFERÊNCIAS
+https://www.castsoftware.com/blog/how-to-use-strangler-pattern-for-microservices-modernization
+https://microservices.io/patterns/refactoring/strangler-application.html

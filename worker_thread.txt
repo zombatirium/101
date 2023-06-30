@@ -1,0 +1,5 @@
+worker thread: Threads de trabalho
+são chamados assim
+porque estão aguardando a chegada de algum trabalho e
+o realizam quando atribuídos por outra pessoa.
+

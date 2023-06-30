@@ -1,0 +1,33 @@
+Web Service, 
+é importante entender que web service é: 
+um tipo de arquitetura de desenvolvimento 
+cujo objetivo é a troca de informações 
+entre duas entidades de software 
+através da internet, 
+utilizando os protocolos de comunicação disponíveis 
+tornando, o envio e recepção dos dados 
+um processo já consolidado e conhecido.
+
+Portanto, agora é possível compreender melhor 
+o significado do termo web service, 
+que pode ser entendido como: 
+um “serviço” correspondente a um componente de software 
+acessível através de um endereço ou ponto de rede. 
+Para isso, tanto o consumidor quanto o provedor do serviço 
+utilizam mensagens com um formato próprio 
+para enviar requisições e receber as respostas 
+sem fazer qualquer suposição 
+quanto às capacidades ou tipo de tecnologia empregada 
+tanto numa ponta quanto na outra do processo de comunicação.
+
+web services RESTful (Representational State Transfer) 
+são mais adequados para a utilização em cenários mais básicos
+também são melhor adaptados ao uso do protocolo HTTP
+são mais leves, 
+o que significa que podem ser desenvolvidos com menor esforço, 
+tornando-os mais fáceis de serem adotados 
+como parte da implementação de um sistema. 
+
+# REFERÊNCIAS
+https://www.tutorialspoint.com/restful/restful_introduction.htm
+https://www.devmedia.com.br/introducao-a-web-services-restful/37387

@@ -1,0 +1,70 @@
+widget de software 
+é um aplicativo ou 
+componente de software 
+relativamente simples e 
+fácil de usar 
+feito para uma ou 
+mais plataformas de software diferentes.
+
+TIPOS:
+  GUI widgets:
+    representa uma parte de uma interface gráfica com o usuário (GUI)
+    que o usuário pode usar para interagir com o programa 
+    ao qual a GUI pertence. 
+    Elementos de controle gráfico são implementados como sub-rotinas. 
+    Kits de ferramentas de widget e 
+    estruturas de software, 
+    como GTK + ou Qt, 
+    os contêm em bibliotecas de software 
+    para que os programadores possam usá-los
+    em busca de construir GUIs para seus programas.
+
+    numa interface gráfica, 
+    é um elemento de interação - 
+    tal como janelas, 
+    botões, 
+    menus, 
+    ícones, 
+    barras de rolagem etc. 
+
+    O termo pode também se referir aos pequenos aplicativos 
+    que flutuam pela área de trabalho e 
+    fornecem funcionalidades específicas ao utilizador.
+
+
+  Widget de Desktop:
+    Widgets de área de trabalho (comumente chamados apenas de widgets) 
+    são ferramentas virtuais interativas 
+    que fornecem serviços de propósito único, 
+    como mostrar ao usuário as últimas notícias, 
+    o clima atual, 
+    a hora, 
+    um calendário, 
+    um dicionário, 
+    um programa de mapa, 
+    uma calculadora, 
+    notas de área de trabalho, 
+    visualizadores de fotos ou 
+    mesmo um tradutor de idiomas, 
+    entre outras coisas.
+
+  Widgets móveis:
+    A maioria dos widgets móveis são como widgets de desktop, 
+    mas para um telefone móvel. 
+    Os widgets móveis podem maximizar o uso do espaço da tela e 
+    podem ser especialmente úteis 
+    para colocar aplicativos ricos em dados ao vivo 
+    na tela 
+    inativa/inicial/"telefone" do dispositivo. 
+    Existem vários mecanismos de widget móvel 
+    baseados em Java ME, 
+    mas a falta de APIs baseadas em padrões para Java,
+    em busca de controlar a tela inicial do dispositivo móvel,
+    torna mais difícil para esses mecanismos expor widgets no telefone.
+
+  Web Widgets:
+    Os navegadores da web também podem ser usados 
+    como infraestruturas de mecanismo de widget. 
+    A web é um ambiente adequado para distribuição de widgets,
+    pois não requer interação explícita do usuário 
+    para instalar novos trechos de código.

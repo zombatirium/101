@@ -1,0 +1,17 @@
+sockets, tomadas
+são abstrações das camadas de rede para aplicações 
+que precisam se comunicar com outras aplicações através de redes.
+
+Durante uma conexção, sockets do Client-Server NUNCA MUDAM
+Caso aconteça de mudar, já é caracterizado como OUTRA conexão
+
+Basicamente é a combinação de
+protocolo + IP + porta.
+
+EX:
+    PROTOCOLO://IP:PORTA
+        http://1.1.1.1:80
+
+# REFERÊNCIAS
+https://blog.pantuza.com/artigos/o-que-sao-e-como-funcionam-os-sockets
+https://www.ateomomento.com.br/sockets/

@@ -1,0 +1,9 @@
+tempo de compilação:
+    valores não mutáveis
+      tamanho já conhecido
+        stack
+
+tempo de execução:
+    valores mutáveis
+      tamanho pode mudar ao longo da execução
+        heap

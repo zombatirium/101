@@ -1,0 +1,34 @@
+Stateless, protocolo sem estado
+considera cada requisição 
+como uma transação independente 
+que não está relacionada a qualquer requisição anterior, 
+de forma que a comunicação consista de pares 
+de requisição e 
+resposta independentes.
+
+são recursos isolados. 
+Nenhuma referência ou informação sobre transações antigas
+são armazenadas, 
+e cada uma delas é feita do zero. 
+As aplicações stateless fornecem uma função ou 
+serviço e 
+usam a rede de entrega de conteúdo (CDN), 
+a web ou 
+servidores de impressão para processar essas solicitações a curto prazo. 
+
+Por exemplo, 
+uma transação stateless 
+pode ser uma pesquisa online 
+que você faz para tirar alguma dúvida. 
+Você digita sua consulta no mecanismo de pesquisa e 
+pressiona enter. 
+Se a transação for interrompida ou 
+encerrada sem querer, 
+você precisará começar outra. 
+
+As transações stateless são como máquinas de vendas automáticas: 
+você faz uma solicitação e recebe uma resposta. 
+
+Oposto a stateful.txt
+
+https://www.redhat.com/pt-br/topics/cloud-native-apps/stateful-vs-stateless

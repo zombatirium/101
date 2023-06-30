@@ -1,0 +1,10 @@
+Sistema em teste (SUT) 
+refere-se a um sistema 
+que está sendo testado para operação correta. 
+De acordo com o ISTQB, 
+é o objeto de teste. 
+O termo é usado principalmente em testes de software. 
+Um caso especial de um sistema de software 
+é um aplicativo (coisa que se quer testar) que, 
+quando testado, 
+é chamado de aplicativo em teste.

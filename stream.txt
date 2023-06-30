@@ -1,0 +1,3 @@
+stream, fluxo 
+é uma sequência de elementos de dados 
+disponibilizados ao longo do tempo. 

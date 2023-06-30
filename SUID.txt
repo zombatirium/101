@@ -1,0 +1,27 @@
+SUID ou Set Owner User ID 
+é um flag (bit) de permissão 
+que se aplica aos executáveis. 
+ 
+O SUID 
+permite que um usuário alternativo 
+execute um executável 
+com as mesmas permissões 
+que o proprietário do arquivo 
+em vez das permissões do usuário alternativo.
+
+- s = possui permissão de execução
+- S = não possui permissão de execução
+
+```
+  chmod 4750 arquivo # permissão 4 = SUID
+```
+
+```
+  ls -i
+  -rwsr-xr-x fabio arquivo
+```
+
+# REFERÊNCIAS
+[Special Permissions SUID](https://linuxhint.com/special-permissions-suid-guid-sticky-bit/)
+[SUID](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit)
+[SUID e SGID](http://www.bosontreinamentos.com.br/linux/certificacao-lpic-1/suid-e-sgid-permissoes-especiais-no-linux-01/)

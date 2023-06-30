@@ -1,0 +1,12 @@
+stale while revalidate (SWR),
+obsoleto enquanto revalidado
+indica que o cliente aceitará uma resposta 
+de caducidade
+enquanto verifica uma fresca 
+assincronamente 
+em background. 
+
+
+# REFERÊNCIA
+[Keeping things fresh with stale-while-revalidate](https://web.dev/stale-while-revalidate/)
+[Cache Control](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/Cache-Control)

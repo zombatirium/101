@@ -1,0 +1,10 @@
+Variable Shadowing,
+sobreposição de variável
+anteriormente criada
+
+EX:
+    fn main() 
+    {
+        let total = 10;
+        let total = "quarenta"; /* recriação de variável */
+    }

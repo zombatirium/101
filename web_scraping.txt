@@ -1,0 +1,6 @@
+Web scraping é
+uma coleta de dados da web,
+de sites,
+onde são usados scripts e programas
+para “raspar” informações destes sites e
+que poderão ser usadas para futuras análises.

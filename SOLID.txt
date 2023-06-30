@@ -1,0 +1,60 @@
+S (Single Responsability)
+    Uma classe deve ter resposabilidade única
+    deverá ser particionada em blocos de responsabilidade
+    dentro do ecossistema produzido.
+
+O (Open Closed)
+    Open = a classe deve ser aberta para extensões
+    Closed = a classe deve ser fechada para modificações
+
+L (Principio de Substituição de Liskov)
+    Não mudar as interfaces nas definições
+
+    Se você implementa um método em uma interface,
+    é necessário que o RETORNO seja igual para todos os casos,
+    de um jeito onde a classe possa ser substituída sem alteração do código.
+
+    Entendemos que as pré-condições não devem ser maiores e
+    as pós condições devem ser iguais.
+
+    Caso você tenha exceptions dentro do seu código,
+    elas devem ser iguais também.
+
+    "
+     Se **q(x)**
+     é uma propriedade demonstrável dos objetos **x**
+     de tipo **T**.
+     Então **q(y)** deve ser verdadeiro para objetos **y**
+     de tipo **S**
+     onde **S** é subtipo de **T**.
+    "
+
+    T = líquido
+    X = água | S = refrigerante a base de cola
+    y = coca-cola
+    q(x) = copo que comporta água
+    q(y) = copo que comporta coca-cola
+
+I (Interface Segregation Principle)
+    segregação de Interfaces
+    responsáveis por coisas específicas.
+
+    Os princípios dentro do SOLID
+    entram praticamente em responsabilidade e legibilidade,
+    porém o ISP te dá a melhor visão sobre.
+
+D (Dependence Inversion)
+    Módulos de alto nível
+    não devem depender de módulos de baixo nível.
+    Ambos devem depender de abstrações;
+
+    Abstrações não devem depender de detalhes.
+    Detalhes (implementações concretas)
+    devem depender das abstrações.
+
+    Todos os princípios listados até o momento
+    são dados baseado em INTERFACES e
+    o SOLID em si foi escrito e pensado enquanto
+    desenvolvendo com interfaces,
+    por ser possível deixar genérico boa parte do código e
+    a legibilidade crescer cada vez mais.

@@ -1,0 +1,10 @@
+state-aware. 
+Por exemplo, 
+"Foo" retorna a hora do dia 
+advinda do sistema operacional.
+Toda vez que "Foo" executa, 
+ele pode retornar uma hora diferente.
+
+Oposto a state-reset
+
+https://www.progresstalk.com/threads/state-reset-vs-state-aware-example.138717/

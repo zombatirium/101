@@ -1,0 +1,11 @@
+Vendoring,
+trazer libs para dentro do projeto 
+
+Pode ser usado para:
+auditoria de pacotes
+vpn
+pacotes diferentes para versões diferentes
+
+Algumas ferramentas para vendoring:
+crates <-> Rust
+wheel  <-> Python

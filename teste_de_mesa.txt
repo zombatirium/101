@@ -1,0 +1,10 @@
+O Teste de Mesa 
+é um processo manual 
+que é utilizado para validar a lógica de um determinado algoritmo. 
+Ele é utilizado 
+principalmente 
+em algoritmos 
+quando a linguagem utilizada não possui nenhuma ferramenta automatizada de depuração. 
+
+https://pt.stackoverflow.com/questions/220474/o-que-%C3%A9-um-teste-de-mesa-como-aplic%C3%A1-lo
+https://compvidareal.com.br/blog/boas-praticas-de-programacao/
